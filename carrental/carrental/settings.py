@@ -33,13 +33,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Rental'
+    'Rental',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL= 'login'
+LOGOUT_URL = 'logout'
+
 
 ROOT_URLCONF = 'carrental.urls'
 
@@ -106,9 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
