@@ -10,7 +10,8 @@
         Spróbuj ponownie.
     </p>
     {%else%}
-    <p>Wypełnij poniższy formularz, aby się zalogować:</p>
+    <p>Wypełnij poniższy formularz, aby się zalogować.
+        Jeżeli nie masz jeszcze konta, możesz je utworzyć<a href="{% url "register" %}"> tutaj</a>.</p>
     {% endif %}
     <div class="login-form">
         <form action="{% url 'login' %}" method="post">
@@ -19,5 +20,6 @@
             <input type="hidden" name="next" value="{{ next }}" />
             <p><input type="submit" value="Zaloguj"></p>
         </form>
+        <p><a href="{% url "password_reset" %}">Zapomniałeś hasła?</a></p>
     </div>
     {% endblock %}
