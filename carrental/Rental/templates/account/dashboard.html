@@ -3,6 +3,98 @@
 {% block title %}Panel główny{% endblock %}
 
 {% block content %}
-<h1>Strona główna</h1>
-<p>Witaj w Car Rental!</p>
+<div class="hero">
+    <div class="hero-content">
+        <h1 class="hero-heading">Witaj w Car Rental!</h1>
+        <p class="hero-subtitle">Znajdź idealny samochód dla swoich podróży</p>
+        <a href="#" class="cta-button">Zobacz Flotę</a>
+    </div>
+    <div class="hero-media">
+        <img src="/Users/szymonradosz/PycharmProjects/carrental/carrental/Rental/static/images/mercedes1_CqqOS4M.png" alt="Car Rental" class="hero-image">
+        <div class="rotating-box"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block css %}
+<style>
+    /* wygląd */
+    .hero {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/Users/szymonradosz/PycharmProjects/carrental/carrental/Rental/static/images/Zrzut ekranu 2023-08-24 o 20.11.16.png') center/cover no-repeat;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-heading {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        background-color: #eea642;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #d18f34;
+    }
+
+    .hero-media {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        max-height: 300px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        margin-right: 20px;
+    }
+
+    .rotating-box {
+        width: 100px;
+        height: 100px;
+        background-color: #eea642;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .rotating-box:hover {
+        transform: translate(-50%, -50%) rotate(180deg);
+        background-color: #d18f34;
+    }
+</style>
 {% endblock %}

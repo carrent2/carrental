@@ -3,11 +3,64 @@
 {% block title %}Logowanie{% endblock %}
 
 {% block content %}
-<h1>Logowanie</h1>
-<p>Wypełnij poniższy formularz, aby się zalogować:</p>
-<form action="." method="post">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <p><input type="submit" value="Zaloguj"></p>
-</form>
+<div class="login-container">
+    <h1 class="login-header">Logowanie</h1>
+    <p class="login-subtitle">Wypełnij poniższy formularz, aby się zalogować:</p>
+    <form action="." method="post" class="login-form">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p class="login-submit"><input type="submit" value="Zaloguj"></p>
+    </form>
+</div>
+{% endblock %}
+
+{% block css %}
+<style>
+    /* Dekoracje i kolory */
+    .login-container {
+        background-color: #f7f7f7;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .login-header {
+        color: #eea642;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .login-subtitle {
+        color: #777;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .login-submit input[type="submit"] {
+        background-color: #eea642;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .login-submit input[type="submit"]:hover {
+        background-color: #d18f34;
+    }
+</style>
 {% endblock %}

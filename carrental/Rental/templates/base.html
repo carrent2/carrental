@@ -1,27 +1,66 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{% block title %}{% endblock %}</title>
-        <link href="{% static "css/base.css" %}" rel="stylesheet">
-    </head>
-    <body>
-        <div id="header">
-            <span class="logo">Car Rental</span>
-            {% if request.user.is_authenticated %}
-            <ul class="menu">
-                <li {% if section == "dashboard" %}class="selected"{% endif %}>
-                    <a href="{% url "dashboard" %}">Strona Główna</a>
-                </li>
-                <li {% if section == "reservation" %}class="selected"{% endif %}>
-                    <a href="#">Rezerwacja</a>
-                </li>
-                <li {% if section == "cars" %}class="selected"{% endif %}>
-                    <a href="#">Flota</a>
-                </li>
-            </ul>
-            {% endif %}
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <style>
+        /* Dodatkowe dekoracje do paska nawigacyjnegp */
+        #header {
+            background-color: #eea642;
+            color: #2c2929;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #312b2b;
+        }
+
+        .selected {
+            font-weight: bold;
+        }
+
+        .user {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <span class="logo">Car Rental</span>
+        {% if request.user.is_authenticated %}
+        <ul class="menu">
+            <li {% if section == "dashboard" %}class="selected"{% endif %}>
+                <a href="{% url "dashboard" %}">Home  |</a>
+            </li>
+            <li {% if section == "reservation" %}class="selected"{% endif %}>
+                <a href="#">Rezerwacja  |</a>
+            </li>
+            <li {% if section == "cars" %}class="selected"{% endif %}>
+                <a href="#">Flota</a>
+            </li>
+        </ul>
+        {% endif %}
         <span class="user">
             {% if request.user.is_authenticated %}
             Witaj, {{ request.user.username }}!
@@ -30,10 +69,10 @@
             <a href="{% url "login" %}">Zaloguj</a>
             {% endif %}
         </span>
-        </div>
-        <div id="content">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </body>
-    </html>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
