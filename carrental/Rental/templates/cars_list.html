@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Dostępne samochody{% endblock %}
+
+{% block content%}
+    <h1>Dostępne samochody</h1>
+    <ul>
+        {% for car in cars %}
+            <li>
+                <strong>{{ car.brand }} {{ car.model }}</strong> (Year: {{ car.year }})
+                <p>Price: ${{ car.price }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

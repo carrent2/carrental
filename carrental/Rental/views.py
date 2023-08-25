@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
+from .models import Car
+from datetime import datetime
 
 
 def user_login(request):
@@ -48,4 +50,8 @@ def register(request):
             else:
                  user_form = UserRegistrationForm()
             return render(request, 'account/register.html', {'user_form': user_form})
-                     
+
+
+def car_list(request):
+    cars = Car.objects.all()
+    return render(request, 'cars_list.html', {'cars': cars})

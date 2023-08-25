@@ -22,6 +22,6 @@ from Rental import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('Rental.urls')),
-    path('dashboard/', views.dashboard, name="dashboard"),
+    path('', views.dashboard, name="dashboard"),
 
 ]

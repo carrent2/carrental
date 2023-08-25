@@ -16,8 +16,8 @@
                 <li {% if section == "reservation" %}class="selected"{% endif %}>
                     <a href="#">Rezerwacja</a>
                 </li>
-                <li {% if section == "cars" %}class="selected"{% endif %}>
-                    <a href="#">Flota</a>
+                <li {% if section == "car_list" %}class="selected"{% endif %}>
+                    <a href="{% url "car_list" %}">Flota</a>
                 </li>
             </ul>
             {% endif %}
