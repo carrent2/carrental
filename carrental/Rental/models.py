@@ -20,7 +20,7 @@ class BaseModel(models.Model):
 class Car(BaseModel):
     """Car model"""
 
-    brand = models.CharField(max_length=64, null=False)
+    brand = models.CharField(max_length=64, null=False)    
     model = models.CharField(max_length=64, null=False)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2010), MaxValueValidator(2023)], null=False)
     deposit = models.DecimalField(max_digits=6, decimal_places=2, null=True)
@@ -35,12 +35,12 @@ class UserProfile(BaseModel):
     """UserProfile model"""
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=64, null=False)
-    address = models.CharField(max_length=64, null=False)
+    date_of_birth = models.DateField(blank=True, null=True)
+    photo = models.ImageField(upload_to='users/%Y/%m/%d',blank=True)
 
     def __str__(self):
         """Return name of UserProfile"""
-        return f'{self.user} {self.address} {self.phone}'
+        return {self.user.username}
 
 
 class Rental(BaseModel):
