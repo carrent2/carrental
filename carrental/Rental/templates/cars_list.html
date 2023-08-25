@@ -7,8 +7,10 @@
         {% for car in cars %}
             <li>
                 <strong>{{ car.brand }} {{ car.model }}</strong> (Year: {{ car.year }})
-                <p>Price: ${{ car.price }}</p>
+                <p>Price: PLN{{ car.price }}</p>
             </li>
+            <p><a href="{% url 'rent_car' car.id %}">Zarezerwuj!</a></p>
         {% endfor %}
     </ul>
 {% endblock %}
+

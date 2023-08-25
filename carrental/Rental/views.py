@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
-from .models import Car
+from .models import Car, Rental
 from datetime import datetime
 
 
@@ -55,3 +55,24 @@ def register(request):
 def car_list(request):
     cars = Car.objects.all()
     return render(request, 'cars_list.html', {'cars': cars})
+
+
+
+def rent_car(request, car_id):
+    car = get_object_or_404(Car, pk=car_id)
+    
+    if request.method == 'POST':
+        start_date = datetime.strptime(request.POST['start_date'], '%Y-%m-%d').date()
+        end_date = datetime.strptime(request.POST['end_date'], '%Y-%m-%d').date()
+        price = car.price * (end_date - start_date).days
+        
+        rental = Rental(car=car, user=request.user, start_date=start_date, end_date=end_date, price=price)
+        rental.save()
+        return redirect('user_rentals')
+    
+    return render(request, 'rent_car.html', {'car': car})
+
+
+def user_rentals(request):
+    rentals = Rental.objects.filter(user=request.user)
+    return render(request, 'user_rentals.html', {'rentals': rentals})

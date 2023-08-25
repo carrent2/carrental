@@ -13,8 +13,8 @@
                 <li {% if section == "dashboard" %}class="selected"{% endif %}>
                     <a href="{% url "dashboard" %}">Strona Główna</a>
                 </li>
-                <li {% if section == "reservation" %}class="selected"{% endif %}>
-                    <a href="#">Rezerwacja</a>
+                <li {% if section == "user_rentals" %}class="selected"{% endif %}>
+                    <a href="{% url "user_rentals" %}">Twoje rezerwacje</a>
                 </li>
                 <li {% if section == "car_list" %}class="selected"{% endif %}>
                     <a href="{% url "car_list" %}">Flota</a>

@@ -23,4 +23,6 @@ urlpatterns = [
      path('', include('django.contrib.auth.urls')),
      path('register/', views.register, name='register'),
      path('cars/', views.car_list, name='car_list'),
+     path('cars/<int:car_id>/rent/', views.rent_car, name='rent_car'),
+     path('rentals/', views.user_rentals, name='user_rentals'),
 ]

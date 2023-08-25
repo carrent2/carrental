@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%block title%}Rezerwacje {{user.username }}{%endblock%}
+
+{%block content%}
+<h1>Twoje wypożyczenia</h1>
+    <ul>
+        {% for rental in rentals %}
+            <li>
+                <strong>{{ rental.car.brand }} {{ rental.car.model }}</strong>
+                <p>Start Date: {{ rental.start_date }}</p>
+                <p>End Date: {{ rental.end_date }}</p>
+                <p>Price: PLN{{ rental.price }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
