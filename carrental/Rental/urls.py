@@ -25,4 +25,5 @@ urlpatterns = [
      path('cars/', views.car_list, name='car_list'),
      path('cars/<int:car_id>/rent/', views.rent_car, name='rent_car'),
      path('rentals/', views.user_rentals, name='user_rentals'),
+     path('validation-error/', views.validation_error_view, name='validation_error'),
 ]

@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.admin',
 ]
 
-
+# EMAIL_HOST = 'smtp.office365.com'
+# EMAIL_HOST_USER = 'mxsiatk@outlook.com'
+# EMAIL_HOST_PASSWORD = "password"
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

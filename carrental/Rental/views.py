@@ -6,6 +6,7 @@ from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from .models import Car, Rental
 from datetime import datetime
+from django.core.exceptions import ValidationError
 
 
 def user_login(request):
@@ -67,12 +68,23 @@ def rent_car(request, car_id):
         price = car.price * (end_date - start_date).days
         
         rental = Rental(car=car, user=request.user, start_date=start_date, end_date=end_date, price=price)
-        rental.save()
-        return redirect('user_rentals')
+        
+        try:
+            rental.full_clean()  # Walidacja modelu przed zapisem
+            rental.save()
+            return redirect('user_rentals')
+        except ValidationError as e:
+            error_message = str(e)
+            return render(request, 'validation_error.html', {'error_message': error_message})
     
     return render(request, 'rent_car.html', {'car': car})
+
 
 
 def user_rentals(request):
     rentals = Rental.objects.filter(user=request.user)
     return render(request, 'user_rentals.html', {'rentals': rentals})
+
+
+def validation_error_view(request):
+    return render(request, 'validation_error.html')
