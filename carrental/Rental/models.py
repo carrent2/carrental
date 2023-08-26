@@ -6,19 +6,16 @@ User = settings.AUTH_USER_MODEL
 
 
 class BaseModel(models.Model):
-    """Base model."""
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        """Meta class."""
 
         abstract = True
 
 
 class Car(BaseModel):
-    """Car model"""
 
     brand = models.CharField(max_length=64, null=False)    
     model = models.CharField(max_length=64, null=False)
@@ -27,24 +24,20 @@ class Car(BaseModel):
     price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
 
     def __str__(self):
-        """Return name of car"""
         return f'{self.brand} {self.model} {self.year}'
 
 
 class UserProfile(BaseModel):
-    """UserProfile model"""
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_of_birth = models.DateField(blank=True, null=True)
     photo = models.ImageField(upload_to='users/%Y/%m/%d',blank=True)
 
     def __str__(self):
-        """Return name of UserProfile"""
         return {self.user.username}
 
 
 class Rental(BaseModel):
-    """Rental model"""
 
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='rentals', null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rentals', null=False)
@@ -53,7 +46,6 @@ class Rental(BaseModel):
     price = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
 
     def __str__(self):
-        """Return name of rental"""
         return f"{self.car} {self.user} {self.start_date} {self.end_date}"
 
     def save(self, *args, **kwargs):
