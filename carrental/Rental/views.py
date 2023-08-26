@@ -57,7 +57,6 @@ def car_list(request):
     return render(request, 'cars_list.html', {'cars': cars})
 
 
-
 def rent_car(request, car_id):
     car = get_object_or_404(Car, pk=car_id)
     
