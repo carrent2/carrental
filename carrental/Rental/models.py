@@ -53,24 +53,9 @@ class Rental(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rentals', null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=False)
-    price = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)  # Zmiana na null=True
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def clean(self):
-        conflicting_rentals = Rental.objects.filter(
-            car=self.car,
-            start_date__lte=self.end_date,
-            end_date__gte=self.start_date
-        ).exclude(pk=self.pk)  # wykluczenie aktualnego wypozyczenia przy aktualizacji
-
-        if conflicting_rentals.exists():
-             raise ValidationError('Auto jest niedostępne w tym terminie, proszę wybrać inny termin.')
-
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            self.clean()  # przeprowadz walidacje przed przekalkulowaniem ceny.
-            self.price = self.car.price * (self.end_date - self.start_date).days
-        super().save(*args, **kwargs)
 
     

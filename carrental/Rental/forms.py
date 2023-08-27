@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-
+from .models import Rental
 
 
 class LoginForm(forms.Form):
@@ -23,3 +23,7 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password2']
     
 
+class RentalForm(forms.ModelForm):
+    class Meta:
+        model = Rental
+        fields = ['start_date', 'end_date']
