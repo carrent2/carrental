@@ -58,6 +58,10 @@ def car_list(request):
     return render(request, 'cars_list.html', {'cars': cars})
 
 
+def calculate_price(car, start_date, end_date):
+    days = (end_date - start_date).days + 1  # Add 1 to include last day
+    return car.price * days
+
 def rent_car(request, car_id):
     car = get_object_or_404(Car, pk=car_id)
     
@@ -67,11 +71,11 @@ def rent_car(request, car_id):
             start_date = form.cleaned_data['start_date']
             end_date = form.cleaned_data['end_date']
             
-            if start_date < timezone.now().date():
-                error_message = "Wybrana data jest w przeszłości."
+            if start_date < timezone.now().date() or end_date < start_date:
+                error_message = "Wybrana data jest nieprawidłowa."
                 return render(request, 'validation_error_past.html', {'error_message': error_message})
             
-            # Ccheck if car is available 
+            # Check if car is available 
             conflicting_rentals = Rental.objects.filter(
                 car=car,
                 start_date__lte=end_date,
@@ -82,7 +86,7 @@ def rent_car(request, car_id):
                 error_message = "Auto jest niedostępne w tym terminie, proszę wybrać inny termin."
                 return render(request, 'validation_error.html', {'error_message': error_message})
             
-            price = car.price * (end_date - start_date).days
+            price = calculate_price(car, start_date, end_date)
             rental = Rental(car=car, user=request.user, start_date=start_date, end_date=end_date)
             
             try:
