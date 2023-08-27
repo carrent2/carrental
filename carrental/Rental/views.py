@@ -106,3 +106,5 @@ def user_rentals(request):
     rentals = Rental.objects.filter(user=request.user)
     return render(request, 'user_rentals.html', {'rentals': rentals})
 
+def contact_view(request):
+    return render(request, 'contact.html')

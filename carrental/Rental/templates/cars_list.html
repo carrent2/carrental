@@ -1,22 +1,25 @@
 {% extends "base.html" %}
+
 {% block title %}Dostępne samochody{% endblock %}
 
 {% block content %}
     <h1>Dostępne samochody</h1>
-    <ul>
+    <div class="car-tiles">
         {% for car in cars %}
-    <li>
-        <strong>{{ car.brand }} {{ car.model }}</strong> (Year: {{ car.year }})
-        <p>Cena: PLN {{ car.price }}</p>
-    </li> 
-        
-    {% if car.image %}
-            <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}" width="100" height="70">
-        {% else %}
-            <p>No Image Available</p>
-        {% endif %}
-        <p><a href="{% url 'rent_car' car.id %}">Zarezerwuj!</a></p>
-{% endfor %}
-    </ul>
+            <div class="car-tile">
+                <div class="car-image">
+                    {% if car.image %}
+                        <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}">
+                    {% else %}
+                        <p>No Image Available</p>
+                    {% endif %}
+                </div>
+                <div class="car-details">
+                    <strong>{{ car.brand }} {{ car.model }}</strong> (Year: {{ car.year }})
+                    <p>Cena: PLN {{ car.price }}</p>
+                    <p><a href="{% url 'rent_car' car.id %}">Zarezerwuj!</a></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
-
