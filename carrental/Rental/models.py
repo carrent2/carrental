@@ -23,6 +23,10 @@ class Car(BaseModel):
     brand = models.CharField(max_length=64, null=False)
     model = models.CharField(max_length=64, null=False)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2010), MaxValueValidator(2023)], null=False)
+    fuel_type = models.CharField(max_length=32, null=False)
+    average_fuel_consumption = models.DecimalField(max_digits=6, decimal_places=1, null=True)
+    number_of_seats = models.DecimalField(max_digits=9, decimal_places=2, null=True)
+    boot_capacity = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     deposit = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
 
