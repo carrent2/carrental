@@ -8,6 +8,7 @@
         {% for car in cars %}
             <div class="car-tile">
                 <div class="car-image">
+                    <a href="{% url 'car_detail' car.id %}">
                     {% if car.image %}
                         <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}">
                     {% else %}

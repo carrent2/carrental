@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-from .forms import LoginForm, UserRegistrationForm, RentalForm
-from .models import Car, Rental
+from .forms import LoginForm, UserRegistrationForm, RentalForm, CommentForm
+from .models import Car, Rental, Comment
 
 
 def user_login(request):
@@ -56,6 +56,25 @@ def register(request):
 def car_list(request):
     cars = Car.objects.all()
     return render(request, 'cars_list.html', {'cars': cars})
+   
+
+@login_required
+def car_detail(request, car_id):
+    car = get_object_or_404(Car, pk=car_id)
+    comments = car.comments.filter(active=True)
+    
+    comment_form = CommentForm()
+    
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.car = car
+            new_comment.user = request.user  # Przypisanie aktualnie zalogowanego użytkownika
+            new_comment.save()
+            return redirect('car_detail', car_id=car_id)
+    
+    return render(request, 'car_detail.html', {'car': car, 'comments': comments, 'comment_form': comment_form})
 
 
 def calculate_price(car, start_date, end_date):

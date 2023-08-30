@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rental, UserProfile, Car
+from .models import Rental, UserProfile, Car, Comment
 from django.utils.html import format_html
 
 admin.site.register(UserProfile)
@@ -20,6 +20,13 @@ class CarAdmin(admin.ModelAdmin):
             return format_html('<span>No Image</span>')
 
     display_image.short_description = 'Image'
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('user','car', 'created', 'updated')
+    list_filter = ('active', 'created', 'updated')
+    search_fields = ('user', 'email', 'body')
+
 
 
 

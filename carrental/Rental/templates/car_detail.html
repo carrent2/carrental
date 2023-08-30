@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ car.brand }} {{ car.model }}{% endblock %}
+
+{% block content %}
+    <h1>{{ car.brand }} {{ car.model }}</h1>
+    <p>Year: {{ car.year }}</p>
+    <p>Deposit: {{ car.deposit }}</p>
+    <p>Price: {{ car.price }}</p>
+    <img src="{{ car.image.url }}" alt="Car Image" style="width: 700px; height: 300px;">
+    
+    <div class="car-image">
+        <a href="{% url 'rent_car' car.id %}" class="btn btn-primary" style="display: block;">Zarezerwuj</a>
+    </div>
+    {% with comments.count as total_comments %}
+    <h2>
+        {{ total_comments }} komentarz{{ total_comments|pluralize:"y" }}
+    </h2>
+    {% endwith %}
+    {% for comment in comments %}
+    <div class="comment">
+        <p class="info">
+            Komentarz {{forloop.counter }} dodany przez {{ comment.user }}
+            {{ comment.created }}
+        </p>
+        {{ comment.body|linebreaks }}
+    </div>
+    {% empty %}
+    <p>Nie ma jeszcze żadnych komentarzy.</p>
+    {% endfor %}
+    {% if new_comment %}
+    <h2>Twój komentarz został dodany.</h2>
+    {% else %}
+    <h2>Dodaj nowy komentarz</h2>
+    <form action="." method="post">
+        <p>{{ comment_form.body }}</p>
+        {% csrf_token %}
+         <p><input type="submit" value="Dodaj komentarz"></p>
+    </form>
+    {% endif %}
+{% endblock %}

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Rental
+from .models import Rental, Comment
 
 
 class LoginForm(forms.Form):
@@ -27,3 +27,9 @@ class RentalForm(forms.ModelForm):
     class Meta:
         model = Rental
         fields = ['start_date', 'end_date']
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('body',)
