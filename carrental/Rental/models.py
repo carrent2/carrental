@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 from django.utils import timezone
+from PIL import Image
 
 
 
@@ -28,6 +29,14 @@ class Car(BaseModel):
     deposit = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     image = models.ImageField(upload_to="images/%Y/%m/%d",blank=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.image:
+            img = Image.open(self.image.path)
+            max_size = (400, 400)  # Maksymalny rozmiar do którego chcesz skalować obrazek
+            img.thumbnail(max_size)
+            img.save(self.image.path)
 
     def __str__(self):
         """Return name of car"""
