@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Dostępne samochody{% endblock %}
+{% block content %}
+    <h1>Dostępne samochody</h1>
+    <div class="car-tiles">
+        {% for car in cars %}
+            <div class="car-tile">
+                <div class="car-image">
+                    <a href="{% url 'car_detail' car.id %}">
+                        {% if car.image %}
+                            <img src="{{ car.image.url }}" alt="Car Image" width="300">
+                        {% else %}
+                            <p>No Image Available</p>
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="car-details">
+                    <h2>{{ car.brand }} {{ car.model }}</h2>
+                    <p><strong>Rok:</strong> {{ car.year }}</p>
+                    <p><strong>Cena:</strong> PLN {{ car.price }}</p>
+                    <p class="reservation"><a href="{% url 'rent_car' car.id %}">ZAREZERWUJ!</a></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
