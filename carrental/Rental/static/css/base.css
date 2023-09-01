@@ -187,6 +187,167 @@ ul.messages li a.close {
     border: none;
     box-shadow: none;
 }
+/* Dodane style dla formularza logowania */
+.login-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.login-error {
+    color: #e74c3c;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-submit-btn:hover {
+    background-color: #c0392b;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 10px;
+}
+.register-link {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register-link:hover {
+    color: #c0392b;
+}
+.login-info {
+    text-align: center;
+}
+
+/* Dodane style dla szablonu logged_out */
+.logged-out-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.logged-out-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+}
+
+.logged-out-info {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.login-link {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-link:hover {
+    color: #c0392b;
+}
+
+
+/* Dodane style dla formularza rejestracji */
+.registration-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.registration-info {
+    text-align: center;
+}
+
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.registration-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registration-submit-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Dodane style dla szablonu dashboard */
+.index-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.index-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+}
+
+.index-info {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
 
 
 /* Komentarze */
@@ -366,8 +527,8 @@ a.user-car-reservation:hover {
     color: #c0392b;
 }
 
-/* Dodane style dla formularza rezerwacji */
-.reservation-header {
+/* Dodane style dla listy rezerwacji użytkownika */
+.user-rentals-header {
     font-size: 28px;
     margin: 20px 0;
     border-bottom: 2px solid #0077be;
@@ -375,31 +536,80 @@ a.user-car-reservation:hover {
     text-align: center;
 }
 
-.reservation-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+.user-rentals-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.user-rental-item {
+    width: calc(33.33% - 40px);
+    margin: 20px;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    overflow: hidden;
     background-color: #fff;
+    transition: transform 0.3s;
 }
 
-.reservation-form label {
-    display: block;
-    margin-bottom: 5px;
+.user-rental-item:hover {
+    transform: scale(1.05);
+}
+
+.user-car-details {
+    text-align: center;
+    padding: 20px;
+}
+
+.user-car-details img {
+    max-width: 100%;
+    max-height: 150px;
+    height: auto;
+    margin: 0 auto; /* Wyśrodkowanie obrazu */
+    transition: transform 0.3s;
+}
+
+.user-rental-item:hover .user-car-details img {
+    transform: scale(1.1);
+}
+
+.user-car-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.user-car-info h2 {
+    font-size: 20px;
+    margin: 0;
     color: #333;
 }
 
-.reservation-form input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.user-rental-date {
+    margin: 5px 0;
+    color: #666;
 }
 
-.reservation-submit-btn {
+.user-price {
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+.user-car-reservation-link {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.user-car-reservation-link:hover {
+    color: #c0392b;
+}
+
+.user-cancel-btn {
     display: block;
     width: 100%;
     padding: 10px;
@@ -409,8 +619,47 @@ a.user-car-reservation:hover {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
-.reservation-submit-btn:hover {
+.user-cancel-btn:hover {
+    background-color: #c0392b;
+}
+/* Dodane style dla przycisku ZAREZERWUJ w liście samochodów */
+.car-reservation-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.car-reservation-btn:hover {
+    background-color: #c0392b;
+}
+
+
+/* Dodane style dla przycisku Anuluj rezerwację */
+.user-cancel-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.user-cancel-btn:hover {
     background-color: #c0392b;
 }

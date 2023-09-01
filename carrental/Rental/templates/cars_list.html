@@ -19,9 +19,13 @@
                     <h2>{{ car.brand }} {{ car.model }}</h2>
                     <p class="car-year"><strong>Rok:</strong> {{ car.year }}</p>
                     <p class="car-price"><strong>Cena:</strong> PLN {{ car.price }}</p>
-                    <p class="car-reservation"><a class="car-reservation-link" href="{% url 'rent_car' car.id %}">ZAREZERWUJ!</a></p>
+                    <form action="{% url 'rent_car' car.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="ZAREZERWUJ" class="car-reservation-btn">
+                    </form>
                 </div>
             </div>
         {% endfor %}
     </div>
 {% endblock %}
+
