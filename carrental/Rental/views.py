@@ -119,7 +119,7 @@ def rent_car(request, car_id):
     
     return render(request, 'rent_car.html', {'car': car, 'form': form})
 
-login_required
+@login_required
 def cancel_rental(request, rental_id):
     try:
         rental = Rental.objects.get(pk=rental_id, user=request.user)
