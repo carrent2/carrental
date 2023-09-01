@@ -9,9 +9,16 @@
     <p>Cena PLN / dzień: {{ car.price }}</p>
     <img src="{{ car.image.url }}" alt="Car Image" style="width: 40%; height: 40%;">
     
-    <div class="car-image">
-        <a href="{% url 'rent_car' car.id %}" class="btn btn-primary" style="display: block;">ZAREZERWUJ</a>
+    <div class="car-actions">
+        <a href="{% url 'rent_car' car.id %}" class="btn btn-primary">ZAREZERWUJ</a>
+        {% if user_rental %}
+        <form action="{% url 'cancel_rental' user_rental.id %}" method="post" class="cancel-rental-form">
+            {% csrf_token %}
+            <input type="submit" value="Anuluj rezerwację" class="btn btn-danger">
+        </form>
+        {% endif %}
     </div>
+    
     {% with comments.count as total_comments %}
     <h2>
         {{ total_comments }} komentarz{{ total_comments|pluralize:"y" }}
@@ -28,14 +35,17 @@
     {% empty %}
     <p>Nie ma jeszcze żadnych komentarzy.</p>
     {% endfor %}
+    
     {% if new_comment %}
     <h2>Twój komentarz został dodany.</h2>
     {% else %}
     <h2>Dodaj nowy komentarz</h2>
-    <form action="." method="post">
-        <p>{{ comment_form.body }}</p>
+    <form action="." method="post" class="comment-form">
         {% csrf_token %}
-         <p><input type="submit" value="Dodaj komentarz"></p>
+        <label for="{{ comment_form.body.id_for_label }}">Dodaj komentarz:</label>
+        {{ comment_form.body }}
+        <input type="submit" value="Dodaj komentarz">
     </form>
     {% endif %}
 {% endblock %}
+

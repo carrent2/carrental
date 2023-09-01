@@ -6,7 +6,8 @@ from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from .forms import LoginForm, UserRegistrationForm, RentalForm, CommentForm
-from .models import Car, Rental, Comment
+from .models import Car, Rental
+from decimal import Decimal
 
 
 def user_login(request):
@@ -79,7 +80,8 @@ def car_detail(request, car_id):
 
 def calculate_price(car, start_date, end_date):
     days = (end_date - start_date).days + 1  # Add 1 to include last day
-    return car.price * days
+    return car.price * Decimal(days)
+
 
 def rent_car(request, car_id):
     car = get_object_or_404(Car, pk=car_id)
@@ -94,7 +96,6 @@ def rent_car(request, car_id):
                 error_message = "Wybrana data jest nieprawidłowa."
                 return render(request, 'validation_error_past.html', {'error_message': error_message})
             
-            # Check if car is available 
             conflicting_rentals = Rental.objects.filter(
                 car=car,
                 start_date__lte=end_date,
@@ -105,12 +106,9 @@ def rent_car(request, car_id):
                 error_message = "Auto jest niedostępne w tym terminie, proszę wybrać inny termin."
                 return render(request, 'validation_error.html', {'error_message': error_message})
             
-            price = calculate_price(car, start_date, end_date)
             rental = Rental(car=car, user=request.user, start_date=start_date, end_date=end_date)
-            
             try:
                 rental.full_clean()
-                rental.price = price
                 rental.save()
                 return redirect('user_rentals')
             except ValidationError as e:
@@ -120,6 +118,16 @@ def rent_car(request, car_id):
         form = RentalForm()
     
     return render(request, 'rent_car.html', {'car': car, 'form': form})
+
+login_required
+def cancel_rental(request, rental_id):
+    try:
+        rental = Rental.objects.get(pk=rental_id, user=request.user)
+        rental.delete()
+        return redirect('car_detail', car_id=rental.car.id)
+    except Rental.DoesNotExist:
+        return redirect('car_list')
+
 
 def user_rentals(request):
     rentals = Rental.objects.filter(user=request.user)

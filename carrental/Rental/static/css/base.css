@@ -1,51 +1,46 @@
-@import url(//fonts.googleapis.com/css?family=Muli);
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Nothing+You+Could+Do&family=Qwitcher+Grypen:wght@700&display=swap');
-
 /* Resetowanie marginesów i paddingu dla całego dokumentu */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Muli', sans-serif;
-}
-
-/* Ujednolicenie odstępów w tekście */
-p {
     line-height: 1.6;
 }
 
 /* Linki */
 a {
-    color: #0077be;
+    color: #fafafa;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 20px;
 }
 
 a:hover {
-    color: #00a1e4;
+    color: #c72510;
 }
 
 /* Tytuły */
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
+    margin: 20px 0;
 }
 
 h1 {
     border-bottom: 2px solid #0077be;
     padding: 0 0 10px 0;
-    margin: 20px 0;
     font-size: 28px;
 }
 
 h2 {
-    margin: 20px 0;
     font-size: 24px;
 }
 
 /* Nagłówek strony */
 #header {
-    padding: 10px;
-    font-size: 14px;
-    background: #0077be;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #0077be, #00a1e4);
     color: #fff;
     border-bottom: 4px solid #00a1e4;
     overflow: auto;
@@ -54,192 +49,368 @@ h2 {
 #header .logo {
     font-family: 'Dancing Script', cursive;
     color: #fff;
-    font-size: 76px;
-    margin-right: 5%;
+    font-size: 36px;
+    margin: 0;
 }
 
 #header ul.menu {
     list-style: none;
-    font-size: 20px;
+    display: flex;
     margin: 0;
     padding: 0;
 }
 
 #header ul.menu li {
-    display: inline-block;
-    margin: 0 10px;
-    padding: 4px 0;
+    margin: 0 15px;
 }
 
 #header ul.menu li.selected a,
-#header ul.menu li.selected a:hover {
+#header ul.menu li a:hover {
     color: #00a1e4;
     font-weight: bold;
 }
 
-#header a {
-    color: #fff;
-}
-
-#header a:hover {
-    color: #00a1e4;
-}
-
 #header .user {
-    float:right; 
-	padding-top :4px; 
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+#header .user a {
+    margin-left: 10px;
 }
 
 /* Treść strony */
 #content {
-	padding :30px; 
+    padding: 30px;
 }
 
 /* Formularze */
-form { 
-	overflow :auto; 
+form {
+    overflow: auto;
 }
-form p { 
-	overflow :auto; 
+
+form p {
+    overflow: auto;
 }
-label { 
-	color :#333; 
-	margin-bottom :4px; 
-	display :block; 
+
+label {
+    color: #333;
+    margin-bottom: 4px;
+    display: block;
 }
+
 input,
-textarea { 
-	margin :0 0 10px; 
-	background :#efefef; 
-	border :0; 
-	padding :6px 10px; 
-	font-size :14px; 
-	width :100%; 
-	box-sizing :border-box; 
+textarea {
+    margin: 0 0 10px;
+    background: #efefef;
+    border: 0;
+    padding: 6px 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 input[type=submit],
-a.button { 
-	font-weight :bold; 
-	background :#0077be; 
-	color :#fff; 
-	padding :10px 20px; 
-	font-size :14px; 
-	text-transform :uppercase; 
-	border :none; 
-	cursor :pointer; 
+a.button {
+    font-weight: bold;
+    background: #0077be;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
 }
-.errorlist { 
-	color :#0077be; 
-	padding-left :10px; 
+
+.errorlist {
+    color: #0077be;
+    padding-left: 10px;
 }
-.helptext { 
-	color :#aaa; 
-	font-size :13px; 
-	margin :5px 0; 
+
+.helptext {
+    color: #aaa;
+    font-size: 13px;
+    margin: 5px 0;
 }
 
 /* Komunikaty */
-ul.messages { margin :10px;padding :0;list-style-type:none;}
-ul.messages li { padding :14px 20px;margin :10px 0;color:#fff;border-radius :4px;}
-ul.messages li.success { background:#0077be;}
-ul.messages li.success a { color:#00a1e4;}
-ul.messages li.error { background:#0077be;}
-ul.messages li.error a { color:#00a1e4;}
-ul.messages li.info { background:#0077be;}
-ul.messages li.info a { color:#00a1e4;}
-ul.messages li.warning { background:#0077be;}
-ul.messages li.warning a { color:#00a1e4;}
-ul.messages li a.close{float:right ;opacity:.3;border:none ;box-shadow:none}
-
-
-/* Styl dla kafelków samochodów */
-.car-tiles {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Zaczynamy od lewej strony */
-    gap: 20px;
-    margin-top: 30px;
+ul.messages {
+    margin: 10px;
+    padding: 0;
+    list-style-type: none;
 }
 
-.car-tile {
-    position: relative;
+ul.messages li {
+    padding: 14px 20px;
+    margin: 10px 0;
+    color: #fff;
+    border-radius: 4px;
+}
+
+ul.messages li.success {
+    background: #0077be;
+}
+
+ul.messages li.success a {
+    color: #00a1e4;
+}
+
+ul.messages li.error {
+    background: #0077be;
+}
+
+ul.messages li.error a {
+    color: #00a1e4;
+}
+
+ul.messages li.info {
+    background: #0077be;
+}
+
+ul.messages li.info a {
+    color: #00a1e4;
+}
+
+ul.messages li.warning {
+    background: #0077be;
+}
+
+ul.messages li.warning a {
+    color: #00a1e4;
+}
+
+ul.messages li a.close {
+    float: right;
+    opacity: 0.3;
+    border: none;
+    box-shadow: none;
+}
+
+
+/* Komentarze */
+.comment {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.comment .info {
+    font-weight: bold;
+    font-size: 12px;
+    color: #0077be;
+    margin-bottom: 5px;
+}
+
+.comment:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.comment:nth-child(odd) {
+    background: #efefef;
+}
+
+/* Resetowanie marginesów i paddingu dla całego dokumentu */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Muli', sans-serif;
+    line-height: 1.6;
+}
+
+/* Dodane style dla rezerwacji */
+.user-reservations-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+}
+
+.user-reservations-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-reservation-item {
+    margin: 20px 0;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    background-color: #fff;
-    flex-basis: calc(33.33% - 20px); /* Trzeci kafelek na jednym rzędzie */
-    margin-bottom: 120px; /* Dodano margines na dole kafelka */
-}
-
-.car-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.car-image {
-    position: relative;
+    border-radius: 4px;
     overflow: hidden;
-    height: 180px;
-    text-align: center;
+    display: flex;
+    background-color: #fff;
 }
 
-.car-image img {
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s;
-}
-
-.car-tile:hover .car-image img {
-    transform: scale(1.05);
-}
-
-.car-details {
+.user-car-details {
+    display: flex;
+    align-items: center;
     padding: 10px;
-    background-color: rgba(248, 248, 248, 0.9);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transform: translateY(100%);
-    transition: transform 0.3s;
+    position: relative;
 }
 
-.car-tile:hover .car-details {
-    transform: translateY(0);
+.user-car-details img {
+    max-width: 120px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 4px 0 0 4px;
 }
 
-.car-details h2 {
-    font-size: 1.2rem;
+.user-car-info {
+    flex: 1;
+    padding: 10px;
+    border-left: 1px solid #ddd;
+}
+
+.user-car-info h2 {
+    font-size: 20px;
+    margin: 0;
     color: #333;
-    margin: 5px 0;
 }
 
-.car-details p {
-    font-size: 14px;
+.user-car-info p {
+    margin: 5px 0;
     color: #666;
-    margin: 5px 0;
 }
 
-.car-reservation a {
+.user-price {
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+/* Dodatkowe style dla linków */
+a.user-car-reservation {
     color: #e74c3c;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-.car-reservation a:hover {
-    color: #c0392b; /* Zmiana koloru po najechaniu */
+a.user-car-reservation:hover {
+    color: #c0392b;
+}
 
-/* comments */
-.comment {
-    padding:10px;
+/* Dodane style dla dostępnych samochodów */
+.car-list-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
 }
-.comment:nth-child(even) {
-    background:#efefef;
+
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.comment .info {
-    font-weight:bold;
-    font-size:12px;
-    color:#bebcbc;
+
+.car-list-item {
+    width: calc(33.33% - 20px);
+    margin: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+
+.car-list-item:hover {
+    transform: scale(1.05);
+}
+
+.car-image {
+    text-align: center;
+    padding: 20px;
+}
+
+.car-image img {
+    max-width: 100%;
+    max-height: 150px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.car-list-item:hover .car-image img {
+    transform: scale(1.1);
+}
+
+.car-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.car-info h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+
+.car-year,
+.car-price {
+    margin: 5px 0;
+    color: #666;
+}
+
+.car-reservation-link {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.car-reservation-link:hover {
+    color: #c0392b;
+}
+
+/* Dodane style dla formularza rezerwacji */
+.reservation-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.reservation-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.reservation-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.reservation-form input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.reservation-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reservation-submit-btn:hover {
+    background-color: #c0392b;
 }

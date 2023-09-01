@@ -3,14 +3,15 @@
 {% block title %}Wypożycz{{ car.brand }} {{ car.model }}{% endblock %}
 
 {% block content %}
-    <h1>Zarezerwuj {{ car.brand }} {{ car.model }}</h1>
-    <form method="post">
+    <h1 class="reservation-header">Zarezerwuj {{ car.brand }} {{ car.model }}</h1>
+    <form class="reservation-form" method="post">
         {% csrf_token %}
         <input type="hidden" name="car_id" value="{{ car.id }}">
         <label for="start_date">Od:</label>
         <input type="date" name="start_date" required><br>
         <label for="end_date">Do:</label>
         <input type="date" name="end_date" required><br>
-        <input type="submit" value="Zatwierdź">
+        <input type="submit" value="Zatwierdź" class="reservation-submit-btn">
     </form>
 {% endblock %}
+

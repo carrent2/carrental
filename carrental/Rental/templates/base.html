@@ -7,7 +7,8 @@
 </head>
 <body>
     <div id="header">
-        <span class="logo">Car Rental</span>
+        <img src="/static/images/picture2.png" alt="Car Rental Logo" style="max-width: 300px; max-height: 150px;">
+
         {% if request.user.is_authenticated %}
         <ul class="menu">
             <li {% if section == "dashboard" %}class="selected"{% endif %}>

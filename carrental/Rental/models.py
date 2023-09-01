@@ -3,6 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 from django.utils import timezone
 from PIL import Image
+from decimal import Decimal
 
 
 
@@ -67,14 +68,24 @@ class Comment(models.Model):
     def __str__(self):
         return f"Komentarz dodany przez {self.user.username if self.user else 'Anonim'} dla {self.car}"
 
+
 class Rental(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='rentals', null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rentals', null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=False)
-    price = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)  # change to null=True
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, editable=False)
+
+    def calculate_rental_price(self):
+        days_rented = (self.end_date - self.start_date).days + 1
+        return self.car.price * Decimal(days_rented)
+
+    def save(self, *args, **kwargs):
+        if not self.price:
+            self.price = self.calculate_rental_price()
+        super().save(*args, **kwargs)
 
 
 
