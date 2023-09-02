@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Kontakt{% endblock %}
+
+{% block content %}
+    <div class="contact-section">
+        <h1 class="contact-heading">Skontaktuj się z Nami</h1>
+        <p class="contact-description">Odkryj świat luksusu, innowacji i przygody. Nasza firma oferuje wyjątkowe marki samochodów, które definiują nowoczesną motoryzację.</p>
+
+        <div class="contact-details">
+            <h2 class="contact-subheading">Dzwoniąc do Nas</h2>
+            <p class="contact-info">Nasi eksperci doradzą i pomogą wybrać auto Twoich marzeń. Dostarczą Ci kompleksowych informacji o naszych markach samochodów.</p>
+
+            <div class="contact-method">
+                <h3 class="contact-method-title">Numer Telefonu</h3>
+                <p class="contact-method-details">Zadzwoń pod numer: <a href="tel:+48123456789" class="contact-phone-link">+48 12 345 67 89</a></p>
+            </div>
+
+            <div class="contact-method">
+                <h3 class="contact-method-title">Formularz Kontaktowy</h3>
+                <form action="#" method="post" class="contact-form">
+                    {% csrf_token %}
+                    <label for="email">Adres e-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Wiadomość:</label>
+                    <textarea id="message" name="message" rows="4" resize="vertical" required></textarea>
+                    <button type="submit" class="contact-submit-btn">Wyślij</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
