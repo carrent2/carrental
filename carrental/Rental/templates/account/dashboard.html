@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Panel główny{% endblock %}
 
@@ -6,5 +7,15 @@
     <div class="index-container">
         <h1 class="index-header">Strona główna</h1>
         <p class="index-info">Witaj w Car Rental!</p>
+        <img src="{% static 'images/GIF.gif' %}" alt="Animacja" class="centered-gif">
     </div>
+
+    <div class="video-container">
+        <video width="100%" height="auto" controls autoplay>
+            <source src="{% static 'path/to/your/video.mp4' %}" type="video/mp4">
+            <!-- Dodaj więcej źródeł, jeśli masz różne formaty filmów -->
+            Twoja przeglądarka nie obsługuje elementu video.
+        </video>
+    </div>
+
 {% endblock %}
