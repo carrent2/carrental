@@ -27,9 +27,9 @@ class Car(BaseModel):
     brand = models.CharField(max_length=64, null=False)    
     model = models.CharField(max_length=64, null=False)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2010), MaxValueValidator(2023)], null=False)
-    deposit = models.DecimalField(max_digits=6, decimal_places=2, null=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
-    image = models.ImageField(upload_to="images/%Y/%m/%d",blank=True)
+    deposit = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    image = models.ImageField(upload_to="images/%Y/%m/%d", blank=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -70,7 +70,6 @@ class Comment(models.Model):
 
 
 
-
 class Rental(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='rentals', null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rentals', null=False)
@@ -94,7 +93,9 @@ class Rental(models.Model):
             self.price = self.calculate_rental_price()
         super().save(*args, **kwargs)
 
+class ContactMessage(models.Model):
+    email = models.EmailField()
+    message = models.TextField()
 
-
-
-    
+    def __str__(self):
+        return self.email

@@ -8,6 +8,8 @@ from django.utils import timezone
 from .forms import LoginForm, UserRegistrationForm, RentalForm, CommentForm
 from .models import Car, Rental
 from decimal import Decimal
+from django.http import Http404
+from .models import ContactMessage
 
 
 def user_login(request):
@@ -140,8 +142,10 @@ def cancel_rental(request, rental_id):
     try:
         rental = Rental.objects.get(pk=rental_id, user=request.user)
         rental.delete()
-        return redirect('car_detail', car_id=rental.car.id)
+        return render(request,'cancel_success.html')
     except Rental.DoesNotExist:
+        return redirect('car_list')
+    except Http404:
         return redirect('car_list')
 
 
@@ -166,6 +170,16 @@ def delete_comment(request, comment_id):
     return redirect('car_detail', car_id=comment.car.id)
 
 
-def index(request):
-    return render(request, 'index.html')
+def contact_view(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        message = request.POST.get('message')
 
+        # Zapisz dane do bazy danych
+        contact_message = ContactMessage(email=email, message=message)
+        contact_message.save()
+
+
+
+        return render(request,'email_sent.html')  # Przekieruj na stronę potwierdzenia
+    return render(request, 'contact.html')

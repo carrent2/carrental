@@ -4,33 +4,17 @@
 /* Stylowanie dla base.html */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Calibri, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.navbar {
-    background-color: #7e988e;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.navbar-logo {
-    flex-grow: 3;
-}
-
-.logo-image {
-    max-width: 900px; /* Zwiększ maksymalną szerokość logo */
-    max-height: 700px; /* Zwiększ maksymalną wysokość logo */
-}
 
 .navbar-menu {
     list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+    display: flow;
+    margin: 15px;
+    padding: 5px;
 }
 
 .navbar-menu li {
@@ -38,15 +22,16 @@ body {
 }
 
 .navbar-menu li:last-child {
-    margin-right: 0;
+    margin-right: 20px;
 }
 
 .navbar-menu a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     transition: color 0.3s;
+
 }
 
 .navbar-menu a:hover {
@@ -75,21 +60,19 @@ body {
     padding: 20px;
 }
 
-.footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
-/* Dodane style dla base.css */
+
 .logo {
-    text-align: center;
-    padding: 10px;
+    width: 100%;
+    height: auto;
+    display: inline;
+    margin: 0 auto; /* Wyśrodkowanie logo na stronie */
+
 }
 
 .logo-image {
-    max-width: 400px;
-    max-height: 200px;
+    max-width: 500px;
+    max-height: 900px;
+    align-content: center;
 }
 
 .user-info {
@@ -136,7 +119,7 @@ body {
 }
 
 .menu-link:hover {
-    background-color: #0f2d42; /* Nowy kolor tła przy najechaniu */
+    background-color: #f1ab4d; /* Nowy kolor tła przy najechaniu */
     color: white; /* Nowy kolor tekstu przy najechaniu */
     border-radius: 10px; /* Zaokrąglenie tła przy najechaniu */
 }
@@ -144,13 +127,6 @@ body {
 
 .selected {
     background-color: #7E988F;
-}
-
-#header {
-    overflow: hidden;
-    background-color: #f1f1f1;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
 }
 
 
@@ -171,7 +147,7 @@ a {
 }
 
 a:hover {
-    color: #0c2a3b;
+    color: #7e988f;
 }
 
 /* Tytuły */
@@ -181,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    border-bottom: 2px solid #0c2a3b;
+    border-bottom: 2px solid #f1ab4d;
     padding: 0 0 10px 0;
     font-size: 28px;
 }
@@ -197,13 +173,12 @@ h2 {
     justify-content: space-between;
     background: linear-gradient(to right, #7e988f, #7e988f);
     color: #fff;
-    border-bottom: 2px solid #d7d4bc;
+    border-bottom: 4px solid #f1ab4d;
     overflow: auto;
-    padding: 2px 0; /* Zmniejszenie paddingu górnego i dolnego */
+    padding: 4px 0; /* Zmniejszenie paddingu górnego i dolnego */
 }
 
 #header .logo {
-    font-family: 'Dancing Script', cursive;
     color: #fff;
     font-size: 36px;
     margin: 0;
@@ -326,11 +301,11 @@ ul.messages li.info {
 }
 
 ul.messages li.info a {
-    color: #00a1e4;
+    color: #7e988f;
 }
 
 ul.messages li.warning {
-    background: #0077be;
+    background: #7e988f;
 }
 
 ul.messages li.warning a {
@@ -379,7 +354,7 @@ ul.messages li a.close {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #e74c3c;
+    background-color: #153a50;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -388,7 +363,7 @@ ul.messages li a.close {
 }
 
 .login-submit-btn:hover {
-    background-color: #c0392b;
+    background-color: #1b3c57;
 }
 
 .forgot-password {
@@ -396,7 +371,7 @@ ul.messages li a.close {
     margin-top: 10px;
 }
 .register-link {
-    color: #e74c3c;
+    color: #153e4d;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -428,7 +403,7 @@ ul.messages li a.close {
 }
 
 .login-link {
-    color: #e74c3c;
+    color: #214f5d;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -550,13 +525,13 @@ ul.messages li a.close {
 }
 
 .contact-phone-link {
-    color: #e74c3c;
+    color: #7e988f;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .contact-phone-link:hover {
-    color: #c0392b;
+    color: #204454;
 }
 
 .contact-form {
@@ -582,7 +557,7 @@ ul.messages li a.close {
 .contact-submit-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #0077be;
+    background-color: #20455b;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -591,7 +566,7 @@ ul.messages li a.close {
 }
 
 .contact-submit-btn:hover {
-    background-color: #e74c3c;
+    background-color: #7e988f;
     color: #fff;
 }
 
@@ -606,8 +581,8 @@ ul.messages li a.close {
 
 .comment .info {
     font-weight: bold;
-    font-size: 12px;
-    color: #0077be;
+    font-size: 14px;
+    color: #7e988f;
     margin-bottom: 5px;
 }
 
@@ -621,7 +596,7 @@ ul.messages li a.close {
 
 /* Dodane style dla przycisku usuwania komentarza */
 .delete-comment-btn {
-    color: red;
+    color: #043b7a;
     font-weight: bold;
     text-decoration: none;
     margin-top: 5px; /* Dodaj trochę odstępu od komentarza */
@@ -706,14 +681,14 @@ a.user-car-reservation {
 }
 
 a.user-car-reservation:hover {
-    color: #c0392b;
+    color: #7e988f;
 }
 
 /* Dodane style dla dostępnych samochodów */
 .car-list-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #7e988f;
     padding: 0 0 10px 0;
     text-align: center;
 }
@@ -778,21 +753,21 @@ a.user-car-reservation:hover {
 }
 
 .car-reservation-link {
-    color: #e74c3c;
+    color: #7e988f;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .car-reservation-link:hover {
-    color: #c0392b;
+    color: #7e988f;
 }
 
 /* Dodane style dla listy rezerwacji użytkownika */
 .user-rentals-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #7e988f;
     padding: 0 0 10px 0;
     text-align: center;
 }
@@ -860,14 +835,14 @@ a.user-car-reservation:hover {
 }
 
 .user-car-reservation-link {
-    color: #e74c3c;
+    color: #7e988f;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .user-car-reservation-link:hover {
-    color: #c0392b;
+    color: #7e988f;
 }
 
 .user-cancel-btn {
@@ -884,7 +859,7 @@ a.user-car-reservation:hover {
 }
 
 .user-cancel-btn:hover {
-    background-color: #c0392b;
+    background-color: #7e988f;
 }
 /* Dodane style dla przycisku ZAREZERWUJ w liście samochodów */
 .car-reservation-btn {
@@ -929,7 +904,7 @@ a.user-car-reservation:hover {
 .car-detail-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #7e988f;
     padding: 0 0 10px 0;
     text-align: center;
 }
@@ -964,7 +939,7 @@ a.user-car-reservation:hover {
     font-size: 18px;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #0077be; /* Dodajemy niebieski kolor tła */
+    background-color: #7e988f; /* Dodajemy niebieski kolor tła */
     color: #fff; /* Kolor tekstu na przycisku */
 }
 
@@ -1046,12 +1021,12 @@ a.user-car-reservation:hover {
     margin-top: 10px;
     font-size: 18px;
     border-radius: 4px;
-    background-color: #0077be; /* Dodajemy niebieski kolor tła */
+    background-color: #7e988f;
     color: #fff; /* Kolor tekstu na przycisku */
 }
 
 .comment-form .btn:hover {
-    background-color: #e74c3c;
+    background-color: #7e988f;
     color: #fff;
 }
 
@@ -1059,7 +1034,7 @@ a.user-car-reservation:hover {
 .reservation-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #7e988f;
     padding: 0 0 10px 0;
     text-align: center;
 }
@@ -1092,12 +1067,12 @@ a.user-car-reservation:hover {
     padding: 10px 20px;
     font-size: 18px;
     border-radius: 4px;
-    background-color: #0077be; /* Dodajemy niebieski kolor tła */
+    background-color: #7e988f;
     color: #fff; /* Kolor tekstu na przycisku */
 }
 
 .reservation-submit-btn:hover {
-    background-color: #e74c3c;
+    background-color: #f1ab4d;
     color: #fff;
 }
 
@@ -1111,13 +1086,13 @@ a.user-car-reservation:hover {
 }
 
 .custom-link {
-    color: #0077be;
+    color: #f1ab4d;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .custom-link:hover {
-    color: #e74c3c;
+    color: #f1ab4d;
 }
 
 .user-details-btn {
@@ -1125,14 +1100,14 @@ a.user-car-reservation:hover {
     padding: 10px 0; /* Dodanie wewnętrznego odstępu dla lepszej estetyki */
     font-size: 16px;
     border-radius: 4px;
-    background-color: #e74c3c; /* Czerwony kolor tła */
+    background-color: #7e988f; /* kolor tła */
     color: #fff; /* Kolor tekstu na przycisku */
     text-decoration: none; /* Usunięcie domyślnego podkreślenia */
     transition: background-color 0.3s; /* Animacja zmiany koloru tła */
 }
 
 .user-details-btn:hover {
-    background-color: #0077be; /* Niebieski kolor tła po najechaniu myszą */
+    background-color: #f1ab4d; /* Niebieski kolor tła po najechaniu myszą */
     color: #fff;
 }
 
@@ -1140,7 +1115,7 @@ a.user-car-reservation:hover {
 .rental-detail-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #7e988f;
     padding: 0 0 10px 0;
     text-align: center;
 }
@@ -1196,12 +1171,12 @@ a.user-car-reservation:hover {
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #0077be;
+    color: #7e988f;
     transition: color 0.3s;
 }
 
 .rental-details a:hover {
-    color: #e74c3c;
+    color: #f1ab4d;
 }
 /* Stylowanie dla szablonu rental_detail */
 
@@ -1213,11 +1188,101 @@ a.user-car-reservation:hover {
 .return-link {
     font-size: 18px;
     text-decoration: none;
-    color: #0077be;
+    color: #7e988f;
     transition: color 0.3s;
 }
 
 .return-link:hover {
-    color: #e74c3c;
+    color: #f1ab4d;
 }
+
+
+#footer {
+    background-color: #7e988f; /* Kolor tła stopki */
+    color: #fff; /* Kolor tekstu w stopce */
+    text-align: center; /* Wyśrodkuj zawartość tekstu */
+    padding: 20px 0; /* Wewnętrzny odstęp stopki */
+    font-family: Calibri, sans-serif; /* Wybierz odpowiednią czcionkę */
+    font-size: 14px; /* Rozmiar czcionki */
+}
+
+.contact-heading {
+    font-family: 'Dancing Script', coursive;
+    font-size: 76px ;
+
+    }
+
+.contact-info, .copyright {
+    margin: 10px; /* Odstęp między elementami */
+}
+
+.contact-info a, .copyright a {
+    color: #fff; /* Kolor linków */
+    text-decoration: none; /* Usunięcie podkreślenia z linków */
+    transition: color 0.3s; /* Animacja zmiany koloru linków */
+}
+
+.contact-info a:hover, .copyright a:hover {
+    color: #ff6600; /* Kolor linków po najechaniu myszką */
+}
+
+/* Dodatkowe style dla linków */
+.contact-info a {
+    font-weight: bold; /* Pogrubienie linków */
+}
+
+/* Dodatkowe style dla nagłówka stopki */
+#footer h2 {
+    font-size: 18px; /* Rozmiar czcionki nagłówka */
+    margin-bottom: 5px; /* Odstęp od treści stopki */
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Opcjonalny kolor tła, jeśli chcesz */
+
+}
+
+/* Style dla menu */
+.burger {
+    position: absolute;
+    top: 170px;
+    right: 50px;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    font-family: arial;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    border: 2px solid black;
+    transition: .3s linear;
+}
+
+.burger:hover {
+    cursor: pointer;
+    /* Pozostałe właściwości */
+    transform: rotate(405deg);
+
+}
+
+aside {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -300px;
+    width: 300px;
+    height: 500px;
+    background-color: rgb(126, 152, 143);
+    transition: right 2s linear;
+}
+
+.burger:hover + aside {
+    right: 0;
+}
+
+
+
 

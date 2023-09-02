@@ -1,7 +1,6 @@
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
-from Rental.views import index
 
 urlpatterns = [
      path('login/', auth_views.LoginView.as_view(), name='login'),
@@ -19,8 +18,7 @@ urlpatterns = [
           auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
      path('reset/<uidb64>/<token>/',
           auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-     path('reset/done/',
-          auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete')  ,
+     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
      path('', include('django.contrib.auth.urls')),
      path('register/', views.register, name='register'),
      path('cars/', views.car_list, name='car_list'),
@@ -32,7 +30,7 @@ urlpatterns = [
      path('cancel_rental/<int:rental_id>/', views.cancel_rental, name='cancel_rental'),
      path('rental/<int:rental_id>/', views.rental_detail, name='rental_detail'),
      path('delete_comment/<int:comment_id>/', views.delete_comment, name='delete_comment'),
-     path('', index, name='index'),
+     path('contact/', views.contact_view, name='email_sent'),
 
 ]
 
