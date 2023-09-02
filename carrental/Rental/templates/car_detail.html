@@ -33,6 +33,12 @@
                 Komentarz {{forloop.counter }} dodany przez {{ comment.user }} {{ comment.created }}
             </p>
             <p class="comment-body">{{ comment.body|linebreaks }}</p>
+            {% if comment.user == request.user %}
+            <form action="{% url 'delete_comment' comment.id %}" method="post" class="delete-comment-form">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger delete-comment-btn">Usuń</button>
+            </form>
+            {% endif %}
         </div>
         {% empty %}
         <p class="no-comments-info">Nie ma jeszcze żadnych komentarzy.</p>
@@ -50,4 +56,12 @@
         </form>
         {% endif %}
     </div>
+    <style>
+        .delete-comment-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+    </style>
 {% endblock %}

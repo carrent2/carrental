@@ -69,11 +69,18 @@ class Comment(models.Model):
         return f"Komentarz dodany przez {self.user.username if self.user else 'Anonim'} dla {self.car}"
 
 
+
+
 class Rental(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='rentals', null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rentals', null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=False)
+    pickup_location = models.CharField(max_length=100)  # Dodaj pole lokalizacji odbioru
+    return_location = models.CharField(max_length=100)  # Dodaj pole lokalizacji zwrotu
+    additional_info = models.TextField(blank=True, null=True)  # Dodaj pole dodatkowych informacji
+    
+
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, editable=False)

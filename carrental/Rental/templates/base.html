@@ -7,33 +7,35 @@
 </head>
 <body>
     <div id="header">
-        <img src="/static/images/picture2.png" alt="Car Rental Logo" style="max-width: 300px; max-height: 150px;">
-
-        {% if request.user.is_authenticated %}
+        <div class="logo">
+            <img src="{% static 'images/picture2.png' %}" alt="Car Rental Logo" class="logo-image">
+        </div>
         <ul class="menu">
-            <li {% if section == "dashboard" %}class="selected"{% endif %}>
-                <a href="{% url "dashboard" %}">Home</a>
+            <li>
+                <a href="{% url "dashboard" %}" class="menu-link {% if section == "dashboard" %}selected{% endif %}">Home</a>
             </li>
-            <li {% if section == "user_rentals" %}class="selected"{% endif %}>
-                <a href="{% url "user_rentals" %}">Moje rezerwacje</a>
+            <li>
+                <a href="{% url "user_rentals" %}" class="menu-link {% if section == "user_rentals" %}selected{% endif %}">Moje rezerwacje</a>
             </li>
-            <li {% if section == "car_list" %}class="selected"{% endif %}>
-                <a href="{% url "car_list" %}">Samochody</a>
+            <li>
+                <a href="{% url "car_list" %}" class="menu-link {% if section == "car_list" %}selected{% endif %}">Samochody</a>
             </li>
-            <li {% if section == "contact" %}class="selected"{% endif %}>
-                <a href="{% url "contact" %}">Napisz do nas</a>
+            <li>
+                <a href="{% url "contact" %}" class="menu-link {% if section == "contact" %}selected{% endif %}">Napisz do nas</a>
             </li>
         </ul>
-        {% endif %}
-
-    <span class="user">
-        {% if request.user.is_authenticated %}
-        Witaj, {{ request.user.username }}!
-        <a href="{% url "logout" %}">Wyloguj</a>
-        {% else %}
-        <a href="{% url "login" %}">Zaloguj</a>
-        {% endif %}
-    </span>
+        <div class="user-info">
+            {% if request.user.is_authenticated %}
+                <span class="user">
+                    Witaj, {{ request.user.username }}!
+                    <a href="{% url "logout" %}" class="logout-link">Wyloguj</a>
+                </span>
+            {% else %}
+                <span class="user">
+                    <a href="{% url "login" %}" class="login-link">Zaloguj</a>
+                </span>
+            {% endif %}
+        </div>
     </div>
     <div id="content">
         {% block content %}

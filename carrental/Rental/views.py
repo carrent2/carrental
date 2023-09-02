@@ -83,6 +83,7 @@ def calculate_price(car, start_date, end_date):
     return car.price * Decimal(days)
 
 
+
 def rent_car(request, car_id):
     car = get_object_or_404(Car, pk=car_id)
     
@@ -91,11 +92,14 @@ def rent_car(request, car_id):
         if form.is_valid():
             start_date = form.cleaned_data['start_date']
             end_date = form.cleaned_data['end_date']
-            
+            pickup_location = form.cleaned_data['pickup_location']
+            return_location = form.cleaned_data['return_location']
+            additional_info = form.cleaned_data['additional_info']
+
             if start_date < timezone.now().date() or end_date < start_date:
                 error_message = "Wybrana data jest nieprawidłowa."
                 return render(request, 'validation_error_past.html', {'error_message': error_message})
-            
+
             conflicting_rentals = Rental.objects.filter(
                 car=car,
                 start_date__lte=end_date,
@@ -106,18 +110,30 @@ def rent_car(request, car_id):
                 error_message = "Auto jest niedostępne w tym terminie, proszę wybrać inny termin."
                 return render(request, 'validation_error.html', {'error_message': error_message})
             
-            rental = Rental(car=car, user=request.user, start_date=start_date, end_date=end_date)
-            try:
-                rental.full_clean()
-                rental.save()
-                return redirect('user_rentals')
-            except ValidationError as e:
-                error_message = str(e)
-                return render(request, 'validation_error.html', {'error_message': error_message})
+            rental = form.save(commit=False)
+            rental.car = car
+            rental.user = request.user
+            rental.price = rental.calculate_rental_price()
+
+            # Ustaw pola pickup_location, return_location oraz additional_info
+            rental.pickup_location = pickup_location
+            rental.return_location = return_location
+            rental.additional_info = additional_info
+
+            rental.save()
+
+            # Przekieruj do szablonu reservation_confirm.html
+            return render(request, 'reservation_confirm.html', {'rental': rental})
     else:
         form = RentalForm()
     
     return render(request, 'rent_car.html', {'car': car, 'form': form})
+
+def rental_detail(request, rental_id):
+    rental = get_object_or_404(Rental, pk=rental_id)
+    
+    return render(request, 'rental_detail.html', {'rental': rental})
+
 
 @login_required
 def cancel_rental(request, rental_id):
@@ -135,3 +151,17 @@ def user_rentals(request):
 
 def contact_view(request):
     return render(request, 'contact.html')
+
+from django.shortcuts import get_object_or_404, redirect
+from .models import Comment
+
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    
+    # Dodaj warunek, który sprawdzi, czy użytkownik jest właścicielem komentarza
+    if comment.user == request.user:
+        comment.delete()
+    
+    # Przekieruj użytkownika z powrotem na stronę szczegółów samochodu po usunięciu komentarza
+    return redirect('car_detail', car_id=comment.car.id)
+

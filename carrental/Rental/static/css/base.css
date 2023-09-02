@@ -1,10 +1,156 @@
-/* Resetowanie marginesów i paddingu dla całego dokumentu */
+
+/* Stylowanie dla base.html */
+
 body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #0077be;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-logo {
+    flex-grow: 1;
+}
+
+.logo-image {
+    max-width: 200px;
+    max-height: 80px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    margin-right: 20px;
+}
+
+.navbar-menu li:last-child {
+    margin-right: 0;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar-menu a:hover {
+    color: #e74c3c;
+}
+
+.navbar-user {
+    text-align: right;
+    flex-basis: 200px;
+}
+
+.navbar-username {
+    color: #fff;
+    font-size: 16px;
+}
+
+.navbar-link {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+/* Dodane style dla base.css */
+.logo {
+    text-align: center;
+    padding: 10px;
+}
+
+.logo-image {
+    max-width: 400px;
+    max-height: 200px;
+}
+
+.user-info {
+    text-align: right;
+    padding: 10px;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.login-link,
+.logout-link {
+    text-decoration: none;
+    color: #f0f3f5;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.login-link:hover,
+.logout-link:hover {
+    color: #e74c3c;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    background-color: #0077be;
+    overflow: hidden;
+}
+
+.menu-link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu-link:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.selected {
+    background-color: #e74c3c;
+}
+
+#header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* Resetowanie marginesów i paddingu dla całego dokumentu */
+/* body {
     margin: 0;
     padding: 0;
     font-family: 'Muli', sans-serif;
     line-height: 1.6;
-}
+} */
 
 /* Linki */
 a {
@@ -368,9 +514,8 @@ ul.messages li a.close {
     margin-top: 20px;
 }
 
-.brand-info {
-    /* ... (brak zmian w tym fragmencie) ... */
-}
+
+
 
 .contact-subheading {
     font-size: 24px;
@@ -465,6 +610,16 @@ ul.messages li a.close {
 .comment:nth-child(odd) {
     background: #efefef;
 }
+
+/* Dodane style dla przycisku usuwania komentarza */
+.delete-comment-btn {
+    color: red; 
+    font-weight: bold; 
+    text-decoration: none; 
+    margin-top: 5px; /* Dodaj trochę odstępu od komentarza */
+    display: block; /* Wyświetla przycisk jako blok, aby był pod komentarzem */
+}
+
 
 /* Resetowanie marginesów i paddingu dla całego dokumentu */
 body {
@@ -931,4 +1086,125 @@ a.user-car-reservation:hover {
     background-color: #e74c3c;
     color: #fff;
 }
+
+/* W pliku CSS (np. styles.css) */
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ustaw wysokość na całą dostępną wysokość ekranu */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.custom-link {
+    color: #0077be;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.custom-link:hover {
+    color: #e74c3c;
+}
+
+.user-details-btn {
+    display: block; /* Ustawienie jako blok, aby wypełniał całą dostępną szerokość */
+    padding: 10px 0; /* Dodanie wewnętrznego odstępu dla lepszej estetyki */
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #e74c3c; /* Czerwony kolor tła */
+    color: #fff; /* Kolor tekstu na przycisku */
+    text-decoration: none; /* Usunięcie domyślnego podkreślenia */
+    transition: background-color 0.3s; /* Animacja zmiany koloru tła */
+}
+
+.user-details-btn:hover {
+    background-color: #0077be; /* Niebieski kolor tła po najechaniu myszą */
+    color: #fff;
+}
+
+/* Stylowanie dla szablonu rental_detail */
+.rental-detail-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.rental-details {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.rental-car-details {
+    display: inline-block;
+    max-width: 40%;
+}
+
+.rental-car-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rental-car-info {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.rental-car-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.rental-car-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.rental-car-info strong {
+    font-weight: bold;
+}
+
+.rental-details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.rental-details a {
+    font-size: 18px;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #0077be;
+    transition: color 0.3s;
+}
+
+.rental-details a:hover {
+    color: #e74c3c;
+}
+/* Stylowanie dla szablonu rental_detail */
+
+.return-link-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: #0077be;
+    transition: color 0.3s;
+}
+
+.return-link:hover {
+    color: #e74c3c;
+}
+
 

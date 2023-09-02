@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Szczegóły rezerwacji{{ rental.id }}{% endblock %}
+
+{% block content %}
+    <h1 class="rental-detail-header">Szczegóły rezerwacji numer: {{ rental.id }}</h1>
+    <div class="rental-details">
+        <div class="rental-car-details">
+            <img src="{{ rental.car.image.url }}" alt="{{ rental.car.brand }} {{ rental.car.model }}" class="rental-car-image">
+        </div>
+        <div class="rental-car-info">
+            <h2>{{ rental.car.brand }} {{ rental.car.model }}</h2>
+            <p><strong>Data rozpoczęcia:</strong> {{ rental.start_date }}</p>
+            <p><strong>Data zakończenia:</strong> {{ rental.end_date }}</p>
+            <p><strong>Cena:</strong> PLN {{ rental.calculate_rental_price }}</p>
+            <p><strong>Miejsce odbioru:</strong> {{ rental.pickup_location }}</p>
+            <p><strong>Miejsce zwrotu:</strong> {{ rental.return_location }}</p>
+            <p><strong>Dodatkowe informacje:</strong> {{ rental.additional_info }}</p>
+        </div>
+    </div>
+    <div class="return-link-container">
+        <p>Wróć do <a href="{% url 'user_rentals' %}" class="return-link">moich rezerwacji</a>.</p>
+    </div>
+{% endblock %}

@@ -16,8 +16,21 @@
                 <label for="end_date">Data zakończenia:</label>
                 <input type="date" name="end_date" id="end_date" class="form-control" required>
             </div>
+            <div class="form-group">
+                <label for="pickup_location">Miejsce odbioru:</label>
+                <input type="text" name="pickup_location" id="pickup_location" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="return_location">Miejsce zwrotu:</label>
+                <input type="text" name="return_location" id="return_location" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="additional_info">Dodatkowe informacje:</label>
+                <textarea name="additional_info" id="additional_info" class="form-control"></textarea>
+            </div>
             <button type="submit" class="btn btn-primary reservation-submit-btn">Zatwierdź</button>
         </form>
     </div>
 {% endblock %}
+
 

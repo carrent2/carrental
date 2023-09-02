@@ -26,7 +26,7 @@ class UserRegistrationForm(forms.ModelForm):
 class RentalForm(forms.ModelForm):
     class Meta:
         model = Rental
-        fields = ['start_date', 'end_date']
+        fields = ['start_date', 'end_date', 'pickup_location', 'return_location', 'additional_info']
 
 
 class CommentForm(forms.ModelForm):
