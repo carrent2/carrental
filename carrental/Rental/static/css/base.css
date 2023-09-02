@@ -1,4 +1,3 @@
-
 /* Stylowanie dla base.html */
 
 body {
@@ -8,7 +7,7 @@ body {
 }
 
 .navbar {
-    background-color: #0077be;
+    background-color: #7e988e;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,12 +15,12 @@ body {
 }
 
 .navbar-logo {
-    flex-grow: 1;
+    flex-grow: 3;
 }
 
 .logo-image {
-    max-width: 200px;
-    max-height: 80px;
+    max-width: 700px; /* Zwiększ maksymalną szerokość logo */
+    max-height: 400px; /* Zwiększ maksymalną wysokość logo */
 }
 
 .navbar-menu {
@@ -115,7 +114,7 @@ body {
 .menu {
     list-style-type: none;
     padding: 0;
-    background-color: #0077be;
+    background-color: #7e988f;
     overflow: hidden;
 }
 
@@ -127,13 +126,21 @@ body {
     text-decoration: none;
 }
 
-.menu-link:hover {
-    background-color: #e74c3c;
-    color: white;
+.menu-link {
+    /* Inne style dla elementów .menu-link */
+    padding: 10px 20px; /* Przykładowa wartość */
+    transition: background-color 0.3s, color 0.3s; /* Dodaj płynne przejścia */
 }
 
+.menu-link:hover {
+    background-color: #0f2d42; /* Nowy kolor tła przy najechaniu */
+    color: white; /* Nowy kolor tekstu przy najechaniu */
+    border-radius: 10px; /* Zaokrąglenie tła przy najechaniu */
+}
+
+
 .selected {
-    background-color: #e74c3c;
+    background-color: #7E988F;
 }
 
 #header {
@@ -161,7 +168,7 @@ a {
 }
 
 a:hover {
-    color: #c72510;
+    color: #0c2a3b;
 }
 
 /* Tytuły */
@@ -171,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #0c2a3b;
     padding: 0 0 10px 0;
     font-size: 28px;
 }
@@ -186,9 +193,9 @@ h2 {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background: linear-gradient(to right, #0077be, #00a1e4);
+    background: linear-gradient(to right, #7e988f, #7e988f);
     color: #fff;
-    border-bottom: 4px solid #00a1e4;
+    border-bottom: 4px solid #d7d4bc;
     overflow: auto;
 }
 
@@ -212,7 +219,7 @@ h2 {
 
 #header ul.menu li.selected a,
 #header ul.menu li a:hover {
-    color: #00a1e4;
+    color: #7E988F;
     font-weight: bold;
 }
 
@@ -261,7 +268,7 @@ textarea {
 input[type=submit],
 a.button {
     font-weight: bold;
-    background: #0077be;
+    background: #7E988F;
     color: #ffffff;
     padding: 10px 20px;
     font-size: 14px;
@@ -271,7 +278,7 @@ a.button {
 }
 
 .errorlist {
-    color: #0077be;
+    color: #7E988F;
     padding-left: 10px;
 }
 
@@ -296,23 +303,23 @@ ul.messages li {
 }
 
 ul.messages li.success {
-    background: #0077be;
+    background: #7E988F;
 }
 
 ul.messages li.success a {
-    color: #00a1e4;
+    color: #7E988F;
 }
 
 ul.messages li.error {
-    background: #0077be;
+    background: #7E988F;
 }
 
 ul.messages li.error a {
-    color: #00a1e4;
+    color: #7E988F;
 }
 
 ul.messages li.info {
-    background: #0077be;
+    background: #7E988F;
 }
 
 ul.messages li.info a {
@@ -324,7 +331,7 @@ ul.messages li.warning {
 }
 
 ul.messages li.warning a {
-    color: #00a1e4;
+    color: #7E988F;
 }
 
 ul.messages li a.close {
@@ -337,7 +344,7 @@ ul.messages li a.close {
 .login-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #7E988F;
     padding: 0 0 10px 0;
     text-align: center;
 }
@@ -407,7 +414,7 @@ ul.messages li a.close {
 .logged-out-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #7E988F;
     padding: 0 0 10px 0;
 }
 
@@ -424,7 +431,7 @@ ul.messages li a.close {
 }
 
 .login-link:hover {
-    color: #c0392b;
+    color: #7E988F;
 }
 
 
@@ -432,7 +439,7 @@ ul.messages li a.close {
 .registration-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #7E988F;
     padding: 0 0 10px 0;
     text-align: center;
 }
@@ -485,7 +492,7 @@ ul.messages li a.close {
 .index-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #496057;
     padding: 0 0 10px 0;
 }
 
@@ -504,7 +511,7 @@ ul.messages li a.close {
 .contact-heading {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #fda602;
     padding: 0 0 10px 0;
 }
 
@@ -513,9 +520,6 @@ ul.messages li a.close {
     font-size: 18px;
     margin-top: 20px;
 }
-
-
-
 
 .contact-subheading {
     font-size: 24px;
@@ -613,9 +617,9 @@ ul.messages li a.close {
 
 /* Dodane style dla przycisku usuwania komentarza */
 .delete-comment-btn {
-    color: red; 
-    font-weight: bold; 
-    text-decoration: none; 
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
     margin-top: 5px; /* Dodaj trochę odstępu od komentarza */
     display: block; /* Wyświetla przycisk jako blok, aby był pod komentarzem */
 }
@@ -633,7 +637,7 @@ body {
 .user-reservations-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #0077be;
+    border-bottom: 2px solid #f1ab4d;
     padding: 0 0 10px 0;
 }
 
@@ -716,19 +720,24 @@ a.user-car-reservation:hover {
     justify-content: center;
 }
 
+/* Aktualizacja stylu dla kafelków */
+/* Dodajemy tło i odstęp dla kafelków */
 .car-list-item {
     width: calc(33.33% - 20px);
     margin: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     overflow: hidden;
     background-color: #fff;
     transition: transform 0.3s;
+    display: inline-block; /* Zmieniamy z "block" na "inline-block" */
+    vertical-align: top; /* Dodajemy "vertical-align: top" */
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .car-list-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Delikatne powiększenie przy najechaniu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Delikatny cień przy najechaniu */
 }
 
 .car-image {
@@ -878,7 +887,7 @@ a.user-car-reservation:hover {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #e74c3c;
+    background-color: #f1ab4d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -890,7 +899,7 @@ a.user-car-reservation:hover {
 }
 
 .car-reservation-btn:hover {
-    background-color: #c0392b;
+    background-color: #f1ab4d;
 }
 
 
@@ -930,13 +939,14 @@ a.user-car-reservation:hover {
     margin: 10px 0;
 }
 
-.car-image {
+.car-image img {
     max-width: 100%;
     height: auto;
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    border-radius: 4px 0 0 4px;
+    /* Usunięcie ramki */
+    /* box-shadow: none;  Usunięcie cienia */
+    /* outline: none;  Usunięcie konturu */
 }
 
 .car-actions {
@@ -1206,5 +1216,4 @@ a.user-car-reservation:hover {
 .return-link:hover {
     color: #e74c3c;
 }
-
 

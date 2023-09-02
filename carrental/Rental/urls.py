@@ -1,6 +1,7 @@
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
+from Rental.views import index
 
 urlpatterns = [
      path('login/', auth_views.LoginView.as_view(), name='login'),
@@ -31,5 +32,8 @@ urlpatterns = [
      path('cancel_rental/<int:rental_id>/', views.cancel_rental, name='cancel_rental'),
      path('rental/<int:rental_id>/', views.rental_detail, name='rental_detail'),
      path('delete_comment/<int:comment_id>/', views.delete_comment, name='delete_comment'),
+     path('', index, name='index'),
 
 ]
+
+

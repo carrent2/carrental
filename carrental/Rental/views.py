@@ -165,3 +165,7 @@ def delete_comment(request, comment_id):
     # Przekieruj użytkownika z powrotem na stronę szczegółów samochodu po usunięciu komentarza
     return redirect('car_detail', car_id=comment.car.id)
 
+
+def index(request):
+    return render(request, 'index.html')
+
