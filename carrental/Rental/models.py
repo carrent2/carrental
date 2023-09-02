@@ -26,9 +26,9 @@ class Car(BaseModel):
 
     brand = models.CharField(max_length=64, null=False)    
     model = models.CharField(max_length=64, null=False)
-    year = models.PositiveIntegerField(validators=[MinValueValidator(2010), MaxValueValidator(2023)], null=False)
+    year = models.PositiveIntegerField(validators=[MinValueValidator(2010), MaxValueValidator(2023)], null=False,default=2000)
     deposit = models.DecimalField(max_digits=6, decimal_places=2, null=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, default=0.00)
     image = models.ImageField(upload_to="images/%Y/%m/%d",blank=True)
 
     def save(self, *args, **kwargs):
@@ -79,6 +79,7 @@ class Rental(models.Model):
     pickup_location = models.CharField(max_length=100)  # Dodaj pole lokalizacji odbioru
     return_location = models.CharField(max_length=100)  # Dodaj pole lokalizacji zwrotu
     additional_info = models.TextField(blank=True, null=True)  # Dodaj pole dodatkowych informacji
+
     
 
     created_at = models.DateTimeField(default=timezone.now)
