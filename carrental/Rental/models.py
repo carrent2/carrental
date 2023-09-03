@@ -29,7 +29,7 @@ class Car(BaseModel):
     year = models.PositiveIntegerField(validators=[MinValueValidator(2010), MaxValueValidator(2023)], null=False)
     deposit = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
-    image = models.ImageField(upload_to="images/%Y/%m/%d",blank=True)
+    image = models.ImageField(upload_to="images/%Y/%m/%d",blank=False)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

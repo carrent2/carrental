@@ -6,8 +6,9 @@ from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from .forms import LoginForm, UserRegistrationForm, RentalForm, CommentForm
-from .models import Car, Rental
+from .models import Car, Rental, Comment
 from decimal import Decimal
+from django.http import Http404
 
 
 def user_login(request):
@@ -27,7 +28,7 @@ def user_login(request):
             return HttpResponse('Nieprawidłowe dane uwierzytelniające.')
     else:
         form = LoginForm()
-    return render(request, 'accounts/login.html', {'form': form})
+    return render(request, 'account/login.html', {'form': form})
 
 
 
@@ -140,8 +141,10 @@ def cancel_rental(request, rental_id):
     try:
         rental = Rental.objects.get(pk=rental_id, user=request.user)
         rental.delete()
-        return redirect('car_detail', car_id=rental.car.id)
+        return render(request, 'cancel_success.html')  # Przekierowanie na szablon cancel_success.html
     except Rental.DoesNotExist:
+        return redirect('car_list')
+    except Http404:
         return redirect('car_list')
 
 
@@ -152,8 +155,7 @@ def user_rentals(request):
 def contact_view(request):
     return render(request, 'contact.html')
 
-from django.shortcuts import get_object_or_404, redirect
-from .models import Comment
+
 
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
