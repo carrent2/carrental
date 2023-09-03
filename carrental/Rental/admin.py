@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Rental, UserProfile, Car, Comment
+from .models import Rental, UserProfile, Car, Comment, ContactMessage
 from django.utils.html import format_html
+
 
 admin.site.register(UserProfile)
 
@@ -26,6 +27,12 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('user','car', 'created', 'updated')
     list_filter = ('active', 'created', 'updated')
     search_fields = ('user', 'email', 'body')
+
+@admin.register(ContactMessage)
+class ContactMessage_admin(admin.ModelAdmin):
+    list_display = ('email','message')
+    search_fields = ('email', 'message')
+
 
 
 

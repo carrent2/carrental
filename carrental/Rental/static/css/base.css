@@ -1258,15 +1258,14 @@ a.user-car-reservation:hover {
     text-align: center;
     line-height: 50px;
     border: 2px solid black;
-    transition: .3s linear;
+    transition: .3s ease-in-out;
 }
 
 .burger:hover {
     cursor: pointer;
-    /* Pozostałe właściwości */
     transform: rotate(405deg);
-
 }
+
 
 aside {
     position: absolute;
@@ -1276,7 +1275,7 @@ aside {
     width: 300px;
     height: 500px;
     background-color: rgb(126, 152, 143);
-    transition: right 2s linear;
+    transition: right 0.5s linear;
 }
 
 .burger:hover + aside {
