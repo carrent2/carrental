@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -6,10 +6,9 @@ from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from .forms import LoginForm, UserRegistrationForm, RentalForm, CommentForm
-from .models import Car, Rental
+from .models import Car, Rental, ContactMessage, Comment
 from decimal import Decimal
-from django.http import Http404
-from .models import ContactMessage
+
 
 
 def user_login(request):
@@ -32,7 +31,6 @@ def user_login(request):
     return render(request, 'accounts/login.html', {'form': form})
 
 
-
 @login_required
 def dashboard(request):
     return render(request,
@@ -44,16 +42,15 @@ def register(request):
             if request.method == 'POST':
                 user_form = UserRegistrationForm(request.POST)
                 if user_form.is_valid():
-                     #Created new object for user
                     new_user = user_form.save(commit=False)
-                    #setting password
                     new_user.set_password(user_form.cleaned_data['password'])
-                    #Zuuser object save
                     new_user.save()
                     return render(request, 'account/register_done.html',{'new_user':new_user})
-            else:
-                 user_form = UserRegistrationForm()
+            else:        
+                   user_form = UserRegistrationForm() 
             return render(request, 'account/register.html', {'user_form': user_form})
+                 
+            
 
 
 def car_list(request):
@@ -73,7 +70,7 @@ def car_detail(request, car_id):
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.car = car
-            new_comment.user = request.user  # Przypisanie aktualnie zalogowanego użytkownika
+            new_comment.user = request.user  
             new_comment.save()
             return redirect('car_detail', car_id=car_id)
     
@@ -81,9 +78,8 @@ def car_detail(request, car_id):
 
 
 def calculate_price(car, start_date, end_date):
-    days = (end_date - start_date).days + 1  # Add 1 to include last day
+    days = (end_date - start_date).days + 1  
     return car.price * Decimal(days)
-
 
 
 def rent_car(request, car_id):
@@ -117,19 +113,20 @@ def rent_car(request, car_id):
             rental.user = request.user
             rental.price = rental.calculate_rental_price()
 
-            # Ustaw pola pickup_location, return_location oraz additional_info
+            
             rental.pickup_location = pickup_location
             rental.return_location = return_location
             rental.additional_info = additional_info
 
             rental.save()
 
-            # Przekieruj do szablonu reservation_confirm.html
+            
             return render(request, 'reservation_confirm.html', {'rental': rental})
     else:
         form = RentalForm()
     
     return render(request, 'rent_car.html', {'car': car, 'form': form})
+
 
 def rental_detail(request, rental_id):
     rental = get_object_or_404(Rental, pk=rental_id)
@@ -153,20 +150,20 @@ def user_rentals(request):
     rentals = Rental.objects.filter(user=request.user)
     return render(request, 'user_rentals.html', {'rentals': rentals})
 
+
 def contact_view(request):
     return render(request, 'contact.html')
 
-from django.shortcuts import get_object_or_404, redirect
-from .models import Comment
+
 
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
     
-    # Dodaj warunek, który sprawdzi, czy użytkownik jest właścicielem komentarza
+   
     if comment.user == request.user:
         comment.delete()
     
-    # Przekieruj użytkownika z powrotem na stronę szczegółów samochodu po usunięciu komentarza
+   
     return redirect('car_detail', car_id=comment.car.id)
 
 
@@ -175,11 +172,11 @@ def contact_view(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
 
-        # Zapisz dane do bazy danych
+        
         contact_message = ContactMessage(email=email, message=message)
         contact_message.save()
 
 
 
-        return render(request,'email_sent.html')  # Przekieruj na stronę potwierdzenia
+        return render(request,'email_sent.html') 
     return render(request, 'contact.html')
