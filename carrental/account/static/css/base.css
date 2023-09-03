@@ -1,0 +1,1222 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Nothing+You+Could+Do&family=Oooh+Baby&family=Qwitcher+Grypen:wght@700&display=swap');
+
+
+/* Stylowanie dla base.html */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #7e988e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-logo {
+    flex-grow: 3;
+}
+
+.logo-image {
+    max-width: 900px; /* Zwiększ maksymalną szerokość logo */
+    max-height: 700px; /* Zwiększ maksymalną wysokość logo */
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    margin-right: 20px;
+}
+
+.navbar-menu li:last-child {
+    margin-right: 0;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar-menu a:hover {
+    color: #e74c3c;
+}
+
+.navbar-user {
+    text-align: right;
+    flex-basis: 200px;
+}
+
+.navbar-username {
+    color: #fff;
+    font-size: 16px;
+}
+
+.navbar-link {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+/* Dodane style dla base.css */
+.logo {
+    text-align: center;
+    padding: 10px;
+}
+
+.logo-image {
+    max-width: 400px;
+    max-height: 200px;
+}
+
+.user-info {
+    text-align: right;
+    padding: 10px;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.login-link,
+.logout-link {
+    text-decoration: none;
+    color: #f0f3f5;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.login-link:hover,
+.logout-link:hover {
+    color: #e74c3c;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    background-color: #7e988f;
+    overflow: hidden;
+}
+
+.menu-link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu-link {
+    /* Inne style dla elementów .menu-link */
+    padding: 10px 20px; /* Przykładowa wartość */
+    transition: background-color 0.3s, color 0.3s; /* Dodaj płynne przejścia */
+}
+
+.menu-link:hover {
+    background-color: #0f2d42; /* Nowy kolor tła przy najechaniu */
+    color: white; /* Nowy kolor tekstu przy najechaniu */
+    border-radius: 10px; /* Zaokrąglenie tła przy najechaniu */
+}
+
+
+.selected {
+    background-color: #7E988F;
+}
+
+#header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* Resetowanie marginesów i paddingu dla całego dokumentu */
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Muli', sans-serif;
+    line-height: 1.6;
+} */
+
+/* Linki */
+a {
+    color: #fafafa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+a:hover {
+    color: #0c2a3b;
+}
+
+/* Tytuły */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+h1 {
+    border-bottom: 2px solid #0c2a3b;
+    padding: 0 0 10px 0;
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+/* Nagłówek strony */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #7e988f, #7e988f);
+    color: #fff;
+    border-bottom: 2px solid #d7d4bc;
+    overflow: auto;
+    padding: 2px 0; /* Zmniejszenie paddingu górnego i dolnego */
+}
+
+#header .logo {
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    font-size: 36px;
+    margin: 0;
+}
+
+#header ul.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#header ul.menu li {
+    margin: 0 15px;
+}
+
+#header ul.menu li.selected a,
+#header ul.menu li a:hover {
+    color: #7E988F;
+    font-weight: bold;
+}
+
+#header .user {
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+#header .user a {
+    margin-left: 10px;
+}
+
+/* Treść strony */
+#content {
+    padding: 30px;
+}
+
+/* Formularze */
+form {
+    overflow: auto;
+}
+
+form p {
+    overflow: auto;
+}
+
+label {
+    color: #333;
+    margin-bottom: 4px;
+    display: block;
+}
+
+input,
+textarea {
+    margin: 0 0 10px;
+    background: #efefef;
+    border: 0;
+    padding: 6px 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type=submit],
+a.button {
+    font-weight: bold;
+    background: #7E988F;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.errorlist {
+    color: #7E988F;
+    padding-left: 10px;
+}
+
+.helptext {
+    color: #aaa;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+/* Komunikaty */
+ul.messages {
+    margin: 10px;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul.messages li {
+    padding: 14px 20px;
+    margin: 10px 0;
+    color: #fff;
+    border-radius: 4px;
+}
+
+ul.messages li.success {
+    background: #7E988F;
+}
+
+ul.messages li.success a {
+    color: #7E988F;
+}
+
+ul.messages li.error {
+    background: #7E988F;
+}
+
+ul.messages li.error a {
+    color: #7E988F;
+}
+
+ul.messages li.info {
+    background: #7E988F;
+}
+
+ul.messages li.info a {
+    color: #00a1e4;
+}
+
+ul.messages li.warning {
+    background: #0077be;
+}
+
+ul.messages li.warning a {
+    color: #7E988F;
+}
+
+ul.messages li a.close {
+    float: right;
+    opacity: 0.3;
+    border: none;
+    box-shadow: none;
+}
+/* Dodane style dla formularza logowania */
+.login-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #7E988F;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.login-error {
+    color: #e74c3c;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-submit-btn:hover {
+    background-color: #c0392b;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 10px;
+}
+.register-link {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register-link:hover {
+    color: #c0392b;
+}
+.login-info {
+    text-align: center;
+}
+
+/* Dodane style dla szablonu logged_out */
+.logged-out-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.logged-out-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #7E988F;
+    padding: 0 0 10px 0;
+}
+
+.logged-out-info {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.login-link {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-link:hover {
+    color: #7E988F;
+}
+
+
+/* Dodane style dla formularza rejestracji */
+.registration-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #7E988F;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.registration-info {
+    text-align: center;
+}
+
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.registration-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registration-submit-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Dodane style dla szablonu dashboard */
+.index-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.index-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #496057;
+    padding: 0 0 10px 0;
+}
+
+.index-info {
+    text-align: center;
+    font-size: 78px;
+    margin-top: 20px;
+    font-family: 'Oooh Baby', cursive;
+}
+
+/* Dodane style dla szablonu contact */
+.contact-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contact-heading {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #fda602;
+    padding: 0 0 10px 0;
+}
+
+.contact-description {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.contact-subheading {
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.contact-info {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.contact-method {
+    margin-top: 30px;
+}
+
+.contact-method-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-method-details {
+    font-size: 18px;
+    margin: 0;
+}
+
+.contact-phone-link {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-phone-link:hover {
+    color: #c0392b;
+}
+
+.contact-form {
+    margin: 0 auto; /* Dodana właściwość do wyśrodkowania */
+    width: 80%; /* Ograniczenie szerokości formularza */
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact-submit-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077be;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-submit-btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+
+/* Komentarze */
+.comment {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.comment .info {
+    font-weight: bold;
+    font-size: 12px;
+    color: #0077be;
+    margin-bottom: 5px;
+}
+
+.comment:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.comment:nth-child(odd) {
+    background: #efefef;
+}
+
+/* Dodane style dla przycisku usuwania komentarza */
+.delete-comment-btn {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 5px; /* Dodaj trochę odstępu od komentarza */
+    display: block; /* Wyświetla przycisk jako blok, aby był pod komentarzem */
+}
+
+
+/* Resetowanie marginesów i paddingu dla całego dokumentu */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Muli', sans-serif;
+    line-height: 1.6;
+}
+
+/* Dodane style dla rezerwacji */
+.user-reservations-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #f1ab4d;
+    padding: 0 0 10px 0;
+}
+
+.user-reservations-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-reservation-item {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    background-color: #fff;
+}
+
+.user-car-details {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+.user-car-details img {
+    max-width: 120px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 4px 0 0 4px;
+}
+
+.user-car-info {
+    flex: 1;
+    padding: 10px;
+    border-left: 1px solid #ddd;
+}
+
+.user-car-info h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+
+.user-car-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.user-price {
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+/* Dodatkowe style dla linków */
+a.user-car-reservation {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a.user-car-reservation:hover {
+    color: #c0392b;
+}
+
+/* Dodane style dla dostępnych samochodów */
+.car-list-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Aktualizacja stylu dla kafelków */
+/* Dodajemy tło i odstęp dla kafelków */
+.car-list-item {
+    width: calc(33.33% - 20px);
+    margin: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s;
+    display: inline-block; /* Zmieniamy z "block" na "inline-block" */
+    vertical-align: top; /* Dodajemy "vertical-align: top" */
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.car-list-item:hover {
+    transform: scale(1.05); /* Delikatne powiększenie przy najechaniu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Delikatny cień przy najechaniu */
+}
+
+.car-image {
+    text-align: center;
+    padding: 20px;
+}
+
+.car-image img {
+    max-width: 100%;
+    max-height: 150px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.car-list-item:hover .car-image img {
+    transform: scale(1.1);
+}
+
+.car-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.car-info h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+
+.car-year,
+.car-price {
+    margin: 5px 0;
+    color: #666;
+}
+
+.car-reservation-link {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.car-reservation-link:hover {
+    color: #c0392b;
+}
+
+/* Dodane style dla listy rezerwacji użytkownika */
+.user-rentals-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.user-rentals-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.user-rental-item {
+    width: calc(33.33% - 40px);
+    margin: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+
+.user-rental-item:hover {
+    transform: scale(1.05);
+}
+
+.user-car-details {
+    text-align: center;
+    padding: 20px;
+}
+
+.user-car-details img {
+    max-width: 100%;
+    max-height: 150px;
+    height: auto;
+    margin: 0 auto; /* Wyśrodkowanie obrazu */
+    transition: transform 0.3s;
+}
+
+.user-rental-item:hover .user-car-details img {
+    transform: scale(1.1);
+}
+
+.user-car-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.user-car-info h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+
+.user-rental-date {
+    margin: 5px 0;
+    color: #666;
+}
+
+.user-price {
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+.user-car-reservation-link {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.user-car-reservation-link:hover {
+    color: #c0392b;
+}
+
+.user-cancel-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.user-cancel-btn:hover {
+    background-color: #c0392b;
+}
+/* Dodane style dla przycisku ZAREZERWUJ w liście samochodów */
+.car-reservation-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f1ab4d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.car-reservation-btn:hover {
+    background-color: #f1ab4d;
+}
+
+
+/* Dodane style dla przycisku Anuluj rezerwację */
+.user-cancel-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.user-cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Dodane style dla szablonu car_detail */
+.car-detail-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.car-details {
+    text-align: center;
+}
+
+.car-details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.car-image img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 4px 0 0 4px;
+    /* Usunięcie ramki */
+    /* box-shadow: none;  Usunięcie cienia */
+    /* outline: none;  Usunięcie konturu */
+}
+
+.car-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.car-action-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #0077be; /* Dodajemy niebieski kolor tła */
+    color: #fff; /* Kolor tekstu na przycisku */
+}
+
+.car-action-btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.comments-section {
+    text-align: center;
+    margin: 20px auto; /* Wyśrodkowanie sekcji komentarzy */
+    max-width: 600px; /* Maksymalna szerokość sekcji komentarzy */
+}
+
+.comments-header {
+    font-size: 24px;
+    margin: 20px 0; /* Odstęp od nagłówka komentarzy */
+}
+
+.comment-info {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.comment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.comment-header {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-body {
+    font-size: 16px;
+}
+
+.no-comments-info {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.new-comment-info {
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.add-comment-header {
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.comment-form {
+    text-align: center;
+}
+
+.comment-form label {
+    font-size: 18px;
+    display: block;
+    margin-top: 10px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.comment-form .btn {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 4px;
+    background-color: #0077be; /* Dodajemy niebieski kolor tła */
+    color: #fff; /* Kolor tekstu na przycisku */
+}
+
+.comment-form .btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+/* Dodane style dla szablonu rent_car.html */
+.reservation-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.reservation-form-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.reservation-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.reservation-submit-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    background-color: #0077be; /* Dodajemy niebieski kolor tła */
+    color: #fff; /* Kolor tekstu na przycisku */
+}
+
+.reservation-submit-btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+/* W pliku CSS (np. styles.css) */
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ustaw wysokość na całą dostępną wysokość ekranu */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.custom-link {
+    color: #0077be;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.custom-link:hover {
+    color: #e74c3c;
+}
+
+.user-details-btn {
+    display: block; /* Ustawienie jako blok, aby wypełniał całą dostępną szerokość */
+    padding: 10px 0; /* Dodanie wewnętrznego odstępu dla lepszej estetyki */
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #e74c3c; /* Czerwony kolor tła */
+    color: #fff; /* Kolor tekstu na przycisku */
+    text-decoration: none; /* Usunięcie domyślnego podkreślenia */
+    transition: background-color 0.3s; /* Animacja zmiany koloru tła */
+}
+
+.user-details-btn:hover {
+    background-color: #0077be; /* Niebieski kolor tła po najechaniu myszą */
+    color: #fff;
+}
+
+/* Stylowanie dla szablonu rental_detail */
+.rental-detail-header {
+    font-size: 28px;
+    margin: 20px 0;
+    border-bottom: 2px solid #0077be;
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+
+.rental-details {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.rental-car-details {
+    display: inline-block;
+    max-width: 40%;
+}
+
+.rental-car-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rental-car-info {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.rental-car-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.rental-car-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.rental-car-info strong {
+    font-weight: bold;
+}
+
+.rental-details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.rental-details a {
+    font-size: 18px;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #0077be;
+    transition: color 0.3s;
+}
+
+.rental-details a:hover {
+    color: #e74c3c;
+}
+/* Stylowanie dla szablonu rental_detail */
+
+.return-link-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: #0077be;
+    transition: color 0.3s;
+}
+
+.return-link:hover {
+    color: #e74c3c;
+}
