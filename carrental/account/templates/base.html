@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link href="{% static "css/base.css" %}" rel="stylesheet">
+</head>
+<body>
+  <div id="header">
+    <span class="logo">Car Rental</span>
+    {% if request.user.is_authenticated %}
+    <ul class="menu">
+      <li {% if section == "dashboard" %}class="selected"{% endif %}>
+        <a href="{% url "dashboard" %}">Home</a>
+      </li>
+      <li {% if section == "reservations" %}class="selected"{% endif %}>
+        <a href="#">Moje Rezerwacje</a>
+      </li>
+      <li {% if section == "cars" %}class="selected"{% endif %}>
+        <a href="#">Samochody</a>
+      </li>
+    </ul>
+  {% endif %}
+  <div class="user-info">
+            {% if request.user.is_authenticated %}
+                <span class="user">
+                    Witaj, {{ request.user.username }}!
+                    <a href="{% url "logout" %}" class="logout-link">Wyloguj</a>
+                </span>
+            {% else %}
+                <span class="user">
+                    <a href="{% url "login" %}" class="login-link">Zaloguj</a>
+                </span>
+            {% endif %}
+        </div>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
