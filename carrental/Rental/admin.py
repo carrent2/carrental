@@ -7,7 +7,7 @@ admin.site.register(UserProfile)
 
 @admin.register(Rental)
 class RentalAdmin(admin.ModelAdmin):
-    list_display = ('car', 'user', 'start_date', 'end_date','created_at','updated_at', 'price')
+    list_display = ('id', 'car', 'user', 'start_date', 'end_date','created_at','updated_at', 'price')
     search_fields = ('car', 'user')
 
 @admin.register(Car)

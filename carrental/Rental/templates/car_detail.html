@@ -41,13 +41,13 @@
             {% endif %}
         </div>
         {% empty %}
-        <p class="no-comments-info">Nie ma jeszcze żadnych komentarzy.</p>
+        <p class="no-comments-info"></p>
         {% endfor %}
         
         {% if new_comment %}
         <h2 class="new-comment-info">Twój komentarz został dodany.</h2>
         {% else %}
-        <h2 class="add-comment-header">Dodaj nowy komentarz</h2>
+        <h2 class="add-comment-header"></h2>
         <form action="." method="post" class="comment-form">
             {% csrf_token %}
             <label for="{{ comment_form.body.id_for_label }}">Dodaj komentarz:</label>

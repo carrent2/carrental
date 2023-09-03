@@ -35,7 +35,7 @@ body {
 }
 
 .navbar-menu a:hover {
-    color: #e74c3c;
+    color: #f1ab4d;
 }
 
 .navbar-user {
@@ -90,11 +90,13 @@ body {
     color: #f0f3f5;
     margin-left: 10px;
     font-weight: normal;
+    font-size: 16px;
+    font-family: Calibri, sans-serif;
 }
 
 .login-link:hover,
 .logout-link:hover {
-    color: #e74c3c;
+    color: #f1ab4d;
 }
 
 .menu {
@@ -202,15 +204,19 @@ h2 {
 }
 
 #header .user {
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
     display: flex;
-    align-items: center;
+    align-items: center; /* Dodaj właściwą wartość dla align-items */
+    font-family: Calibri, sans-serif;
+    font-weight: normal;
+    margin-top: 180px; /* Dodaj odpowiednią wartość dla margin-top */
 }
 
 #header .user a {
     margin-left: 10px;
 }
+
 
 /* Treść strony */
 #content {
@@ -328,7 +334,7 @@ ul.messages li a.close {
 }
 
 .login-error {
-    color: #e74c3c;
+    color: #f1ab4d;
 }
 
 .login-form {
@@ -354,7 +360,7 @@ ul.messages li a.close {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #153a50;
+    background-color: #f1ab4d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -363,7 +369,7 @@ ul.messages li a.close {
 }
 
 .login-submit-btn:hover {
-    background-color: #1b3c57;
+    background-color: #f1ab4d;
 }
 
 .forgot-password {
@@ -371,13 +377,13 @@ ul.messages li a.close {
     margin-top: 10px;
 }
 .register-link {
-    color: #153e4d;
+    color: #f1ab4d;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .register-link:hover {
-    color: #c0392b;
+    color: #f1ab4d;
 }
 .login-info {
     text-align: center;
@@ -403,7 +409,7 @@ ul.messages li a.close {
 }
 
 .login-link {
-    color: #214f5d;
+    color: #f1ab4d;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -449,7 +455,7 @@ ul.messages li a.close {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #e74c3c;
+    background-color: #f1ab4d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -458,7 +464,7 @@ ul.messages li a.close {
 }
 
 .registration-submit-btn:hover {
-    background-color: #c0392b;
+    background-color: #f1ab4d;
 }
 
 /* Dodane style dla szablonu dashboard */
@@ -470,7 +476,7 @@ ul.messages li a.close {
 .index-header {
     font-size: 28px;
     margin: 20px 0;
-    border-bottom: 2px solid #496057;
+    border-bottom: 2px solid #f1ab4d;
     padding: 0 0 10px 0;
 }
 
@@ -531,7 +537,7 @@ ul.messages li a.close {
 }
 
 .contact-phone-link:hover {
-    color: #204454;
+    color: #f1ab4d;
 }
 
 .contact-form {
@@ -557,7 +563,7 @@ ul.messages li a.close {
 .contact-submit-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #20455b;
+    background-color: #f1ab4d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -596,7 +602,7 @@ ul.messages li a.close {
 
 /* Dodane style dla przycisku usuwania komentarza */
 .delete-comment-btn {
-    color: #043b7a;
+    color: #f1ab4d;
     font-weight: bold;
     text-decoration: none;
     margin-top: 5px; /* Dodaj trochę odstępu od komentarza */
@@ -668,13 +674,13 @@ body {
 
 .user-price {
     font-weight: bold;
-    color: #e74c3c;
+    color: #f1ab4d;
     margin-top: 10px;
 }
 
 /* Dodatkowe style dla linków */
 a.user-car-reservation {
-    color: #e74c3c;
+    color: #f1ab4d;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -830,7 +836,7 @@ a.user-car-reservation:hover {
 
 .user-price {
     font-weight: bold;
-    color: #e74c3c;
+    color: #f1ab4d;
     margin-top: 10px;
 }
 
@@ -849,7 +855,7 @@ a.user-car-reservation:hover {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #e74c3c;
+    background-color: #f1ab4d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -887,7 +893,7 @@ a.user-car-reservation:hover {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #e74c3c;
+    background-color: #f1ab4d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -897,7 +903,7 @@ a.user-car-reservation:hover {
 }
 
 .user-cancel-btn:hover {
-    background-color: #c0392b;
+    background-color: #f1ab4d;
 }
 
 /* Dodane style dla szablonu car_detail */
@@ -944,7 +950,7 @@ a.user-car-reservation:hover {
 }
 
 .car-action-btn:hover {
-    background-color: #e74c3c;
+    background-color: #f1ab4d;
     color: #fff;
 }
 
@@ -1223,7 +1229,7 @@ a.user-car-reservation:hover {
 }
 
 .contact-info a:hover, .copyright a:hover {
-    color: #ff6600; /* Kolor linków po najechaniu myszką */
+    color: #f1ab4d; /* Kolor linków po najechaniu myszką */
 }
 
 /* Dodatkowe style dla linków */
@@ -1246,42 +1252,60 @@ a.user-car-reservation:hover {
 }
 
 /* Style dla menu */
-.burger {
+
+.menu-button {
     position: absolute;
-    top: 170px;
-    right: 50px;
-    font-size: 40px;
-    width: 50px;
-    height: 50px;
-    font-family: arial;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    border: 2px solid black;
-    transition: .3s ease-in-out;
-}
-
-.burger:hover {
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    transform: rotate(405deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+.line {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    transition: transform 0.3s ease-in-out;
+}
 
-aside {
+/* Stan początkowy linii */
+.menu-button.active .line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.menu-button.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* CSS dla menu */
+.menu {
     position: absolute;
     top: 0;
-    bottom: 0;
     right: -300px;
     width: 300px;
-    height: 500px;
+    height: 28.5%;
     background-color: rgb(126, 152, 143);
     transition: right 0.5s linear;
+    border-left: 2px solid #f1ab4d; /* Dodane obramowanie po lewej stronie */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Cień dla menu */
 }
 
-.burger:hover + aside {
+/* Dodaj klasy dla animacji otwierania/zamykania menu */
+.menu.active {
     right: 0;
 }
 
-
-
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 

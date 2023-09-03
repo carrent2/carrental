@@ -1,6 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
-
+{% load static %}
 <html>
 <head>
     <title>{% block title %}Menu{% endblock %}</title>
@@ -8,10 +7,14 @@
     <link rel="stylesheet" href="{% static 'css/style_task.css' %}">
 </head>
 <body>
-    <div class="burger">+</div>
-    <aside>
+    <div class="menu-button" id="menuButton">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </div>
+    <aside class="menu" id="menu">
         <nav>
-            <ul class="menu">
+            <ul class="menu-list">
                 <li>
                     <a href="{% url "dashboard" %}" class="menu-link {% if section == "dashboard" %}selected{% endif %}">Strona główna</a>
                 </li>
@@ -28,11 +31,11 @@
         </nav>
     </aside>
     <div id="header">
-    <div class="logo-container">
-        <div class="logo">
-            <img src="{% static 'images/picture2.png' %}" alt="Logo wypożyczalni samochodów" class="logo-image">
-    </div>
-    </div>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="{% static 'images/picture2.png' %}" alt="Logo wypożyczalni samochodów" class="logo-image">
+            </div>
+        </div>
         <div class="user-info">
             {% if request.user.is_authenticated %}
                 <span class="user">
@@ -50,5 +53,38 @@
         {% block content %}
         {% endblock %}
     </div>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+        const menuLinks = menu.querySelectorAll('.menu-link');
+
+        // Funkcja do otwierania i zamykania menu
+        function toggleMenu() {
+            menuButton.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+
+        // Dodaj obsługę kliknięcia na przycisk otwierający menu
+        menuButton.addEventListener('click', function () {
+            toggleMenu();
+        });
+
+        // Dodaj obsługę kliknięcia na linki w menu
+        menuLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (menu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Dodaj obsługę kliknięcia na całą stronę
+        document.addEventListener('click', function (event) {
+            if (!menu.contains(event.target) && event.target !== menuButton) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
