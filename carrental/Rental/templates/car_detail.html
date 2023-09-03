@@ -3,12 +3,15 @@
 {% block title %}{{ car.brand }} {{ car.model }}{% endblock %}
 
 {% block content %}
-    <h1 class="car-detail-header">{{ car.brand }} {{ car.model }}</h1>
-    <div class="car-details">
-        <p><strong>Rok:</strong> {{ car.year }}</p>
-        <p><strong>Zaliczka:</strong> {{ car.deposit }}</p>
-        <p><strong>Cena PLN / dzień:</strong> {{ car.price }}</p>
-        <img src="{{ car.image.url }}" alt="Car Image" class="car-image">
+    <div class="car-description-container">
+        <h1 class="car-detail-header">{{ car.brand }} {{ car.model }}</h1>
+        <div class="car-details">
+            <p><strong>Rok:</strong> {{ car.year }}</p>
+            <p><strong>Zaliczka:</strong> {{ car.deposit }}</p>
+            <p><strong>Cena PLN / dzień:</strong> {{ car.price }}</p>
+            <p><strong></strong> {{ car.description }}</p>
+            <img src="{{ car.image.url }}" alt="Car Image" class="car-image">
+        </div>
     </div>
     
     <div class="car-actions">

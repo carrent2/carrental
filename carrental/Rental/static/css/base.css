@@ -1113,8 +1113,20 @@ a.user-car-reservation:hover {
 }
 
 .user-details-btn:hover {
-    background-color: #f1ab4d; /* Niebieski kolor tła po najechaniu myszą */
+    background-color: #f1ab4d;
     color: #fff;
+}
+
+.car-description-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 1100px;
+}
+
+.car-details p {
+    font-family: 'Calibri', sans-serif;
+    font-size: 18px;
 }
 
 /* Stylowanie dla szablonu rental_detail */
@@ -1129,11 +1141,14 @@ a.user-car-reservation:hover {
 .rental-details {
     text-align: center;
     margin-top: 20px;
+    font-family: Calibri, sans-serif;
 }
 
 .rental-car-details {
     display: inline-block;
     max-width: 40%;
+    font-family: Calibri, sans-serif;
+    font-size: 16px;
 }
 
 .rental-car-image {

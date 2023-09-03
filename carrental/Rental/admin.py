@@ -12,7 +12,7 @@ class RentalAdmin(admin.ModelAdmin):
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    list_display = ('brand', 'model', 'year', 'display_image')
+    list_display = ('brand', 'model', 'year', 'description', 'display_image')
 
     def display_image(self, obj):
         if obj.image:
