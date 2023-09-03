@@ -29,7 +29,7 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     transition: color 0.3s;
 
 }
@@ -87,10 +87,10 @@ body {
 .login-link,
 .logout-link {
     text-decoration: none;
-    color: #f0f3f5;
+    color: #f6f5f6;
     margin-left: 10px;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 18px;
     font-family: Calibri, sans-serif;
 }
 
@@ -112,6 +112,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 20px;
 }
 
 .menu-link {
@@ -142,14 +143,14 @@ body {
 
 /* Linki */
 a {
-    color: #fafafa;
+    color: #7E988F;
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 a:hover {
-    color: #7e988f;
+    color: #f1ab4d;
 }
 
 /* Tytuły */
@@ -409,13 +410,13 @@ ul.messages li a.close {
 }
 
 .login-link {
-    color: #f1ab4d;
+    color: #f6f5f6;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .login-link:hover {
-    color: #7E988F;
+    color: #f1ab4d;
 }
 
 
@@ -1323,4 +1324,6 @@ a.user-car-reservation:hover {
     padding: 0;
     margin: 0;
 }
+
+
 
