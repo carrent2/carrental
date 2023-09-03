@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Moje rezerwacje {{ user.username }}{% endblock %}
+
+{% block content %}
+    <h1 class="user-rentals-header">Moje rezerwacje</h1>
+    <ul class="user-rentals-list">
+        {% for rental in rentals %}
+            <li class="user-rental-item">
+                <div class="user-car-details">
+                    <img src="{{ rental.car.image.url }}" alt="{{ rental.car.brand }} {{ rental.car.model }}">
+                </div>
+                <div class="user-car-info">
+                    <h2>{{ rental.car.brand }} {{ rental.car.model }}</h2>
+                    <p class="user-rental-date">Data rozpoczęcia: {{ rental.start_date }}</p>
+                    <p class="user-rental-date">Data zakończenia: {{ rental.end_date }}</p>
+                    <p class="user-price">Cena: PLN {{ rental.calculate_rental_price }}</p>
+                    <form action="{% url 'cancel_rental' rental.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Anuluj rezerwację" class="user-cancel-btn">
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
