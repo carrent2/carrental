@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Logowanie{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h1 class="login-header">Logowanie</h1>
+    <p class="login-subtitle">Wypełnij poniższy formularz, aby się zalogować:</p>
+    <form action="." method="post" class="login-form">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p class="login-submit"><input type="submit" value="Zaloguj"></p>
+    </form>
+</div>
+{% endblock %}

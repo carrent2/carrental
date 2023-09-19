@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Panel główny{% endblock %}
+
+{% block content %}
+<div class="index-container">
+    <p class="index-info">Witaj w Car Rental!</p>
+
+    <div class="video-container">
+        <video width="84%" height="auto" controls autoplay loop>
+            <source src="{% static 'video/intro1.mp4' %}" type="video/mp4">
+            <!-- Dodaj więcej źródeł, jeśli masz różne formaty filmów -->
+            Twoja przeglądarka nie obsługuje elementu video.
+        </video>
+    </div>
+
+    <div class="video-container">
+        <video width="100%" height="auto" controls autoplay loop>
+            <source src="{% static 'video/intro.mp4' %}" type="video/mp4">
+            <!-- Dodaj więcej źródeł, jeśli masz różne formaty filmów -->
+            Twoja przeglądarka nie obsługuje elementu video.
+        </video>
+    </div>
+
+    <!-- Stopka -->
+    <div id="footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <p>Numer telefonu: +48 123 456 789</p>
+                <p>Adres e-mail: kontakt@carrental.com</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Car Rental. Wszelkie prawa zastrzeżone przez SDA i Car Rental Team.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

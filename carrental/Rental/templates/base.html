@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}Menu{% endblock %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style_task.css' %}">
+</head>
+<body>
+    <div class="menu-button" id="menuButton">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </div>
+    <aside class="menu" id="menu">
+        <nav>
+            <ul class="menu-list">
+                <li>
+                    <a href="{% url "dashboard" %}" class="menu-link {% if section == "dashboard" %}selected{% endif %}">Strona główna</a>
+                </li>
+                <li>
+                    <a href="{% url "user_rentals" %}" class="menu-link {% if section == "user_rentals" %}selected{% endif %}">Moje rezerwacje</a>
+                </li>
+                <li>
+                    <a href="{% url "car_list" %}" class="menu-link {% if section == "car_list" %}selected{% endif %}">Samochody</a>
+                </li>
+                <li>
+                    <a href="{% url "contact" %}" class="menu-link {% if section == "contact" %}selected{% endif %}">Napisz do nas</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="header">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="{% static 'images/picture2.png' %}" alt="Logo wypożyczalni samochodów" class="logo-image">
+            </div>
+        </div>
+        <div class="user-info">
+            {% if request.user.is_authenticated %}
+                <span class="user">
+                    Witaj, {{ request.user.username }}!
+                    <a href="{% url "logout" %}" class="logout-link">Wyloguj</a>
+                </span>
+            {% else %}
+                <span class="user">
+                    <a href="{% url "login" %}" class="login-link">Zaloguj</a>
+                </span>
+            {% endif %}
+        </div>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+        const menuLinks = menu.querySelectorAll('.menu-link');
+
+
+        function toggleMenu() {
+            menuButton.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+
+
+        menuButton.addEventListener('click', function () {
+            toggleMenu();
+        });
+
+
+        menuLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (menu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+
+        document.addEventListener('click', function (event) {
+            if (!menu.contains(event.target) && event.target !== menuButton) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
